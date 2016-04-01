@@ -1,11 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FXMLController">
-    
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FXMLController">
+   <children>
+      <Pane prefHeight="400.0" prefWidth="166.0">
+         <children>
+            <Button layoutX="23.0" layoutY="14.0" mnemonicParsing="false" text="PREF FLT" />
+            <Button layoutX="23.0" layoutY="50.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="63.0" text="T/O" />
+            <Button layoutX="23.0" layoutY="89.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="63.0" text="CLB" />
+            <Button layoutX="23.0" layoutY="132.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="63.0" text="CRZ" />
+            <Button layoutX="23.0" layoutY="175.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="63.0" text="DES" />
+            <Button layoutX="23.0" layoutY="220.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="63.0" text="APPR" />
+            <Button layoutX="23.0" layoutY="263.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="63.0" text="GA" />
+            <Button layoutX="23.0" layoutY="310.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="63.0" text="DONE" />
+         </children>
+      </Pane>
+      <Pane layoutX="166.0" prefHeight="400.0" prefWidth="435.0" />
+   </children>
 </AnchorPane>
