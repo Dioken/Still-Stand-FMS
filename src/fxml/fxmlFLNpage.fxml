@@ -4,14 +4,14 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="393.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="393.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Button layoutX="310.0" layoutY="43.0" mnemonicParsing="false" text="MODIFIER" />
       <Button layoutX="311.0" layoutY="93.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" text="INSERER" />
       <Button layoutX="312.0" layoutY="142.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" text="VALIDER" />
       <Button layoutX="311.0" layoutY="200.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" text="LISTER" />
       <Label layoutX="151.0" layoutY="26.0" prefHeight="17.0" prefWidth="57.0" text="FLN PAGE" />
-      <Label layoutX="32.0" layoutY="85.0" text="FOM" />
+      <Label layoutX="32.0" layoutY="85.0" text="FROM" />
       <TextField layoutX="93.0" layoutY="81.0" />
       <Label layoutX="25.0" layoutY="146.0" text="300000" />
       <Label layoutX="43.0" layoutY="192.0" prefHeight="17.0" prefWidth="253.0" text="---------------------- F-PLN ----------------------" />
