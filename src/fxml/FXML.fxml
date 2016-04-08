@@ -7,24 +7,23 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FXMLController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="150.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxml.FXMLController">
    <children>
-      <SplitPane dividerPositions="0.2387312186978297" layoutY="-3.0" prefHeight="408.0" prefWidth="601.0">
-        <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="406.0" prefWidth="121.0">
+      <Pane prefHeight="400.0" prefWidth="150.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <VBox alignment="CENTER" prefHeight="400.0" prefWidth="150.0" style="-fx-spacing: 20;">
                <children>
-                  <Button layoutX="30.0" layoutY="33.0" mnemonicParsing="false" text="PREF FLT" />
-                  <Button layoutX="30.0" layoutY="69.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="63.0" text="T/O" />
-                  <Button layoutX="30.0" layoutY="108.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="63.0" text="CLB" />
-                  <Button layoutX="30.0" layoutY="151.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="63.0" text="CRZ" />
-                  <Button layoutX="30.0" layoutY="194.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="63.0" text="DES" />
-                  <Button layoutX="30.0" layoutY="239.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="63.0" text="APPR" />
-                  <Button layoutX="30.0" layoutY="282.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="63.0" text="GA" />
-                  <Button layoutX="30.0" layoutY="329.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="63.0" text="DONE" />
+                  <Button mnemonicParsing="false" onAction="#handleEntrerAPPR" prefHeight="25.0" prefWidth="63.0" text="APPR" />
+                    <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="63.0" text="DES" />
+                    <Button mnemonicParsing="false" onAction="#handleEntrerGA" prefHeight="25.0" prefWidth="63.0" text="GA" />
+                    <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="63.0" text="DONE" />
+                    <Button mnemonicParsing="false" text="PREF FLT" />
+                    <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="63.0" text="T/O" />
+                    <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="63.0" text="CLB" />
+                    <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="63.0" text="CRZ" />
                </children>
-            </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
-        </items>
-      </SplitPane>
+            </VBox>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

@@ -19,7 +19,7 @@
             <Button layoutX="106.0" layoutY="218.0" mnemonicParsing="false" text="PRE FLT" textAlignment="CENTER" />
             <Button layoutX="343.0" layoutY="75.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="61.0" text="AES" textAlignment="CENTER" />
             <Button layoutX="375.0" layoutY="119.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="61.0" text="APPR" textAlignment="CENTER" />
-            <Button layoutX="406.0" layoutY="166.0" mnemonicParsing="false" onAction="#handleMenuAFXML" prefHeight="23.0" prefWidth="61.0" text="GA" textAlignment="CENTER" />
+            <Button layoutX="406.0" layoutY="166.0" mnemonicParsing="false" onAction="#handleEntrerGoAroundPage" prefHeight="23.0" prefWidth="61.0" text="GA" textAlignment="CENTER" />
             <Button layoutX="437.0" layoutY="218.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="61.0" text="DONE" textAlignment="CENTER" />
             <Label layoutX="105.0" layoutY="282.0" prefHeight="19.0" prefWidth="45.0" text="Fuel:" />
             <Label layoutX="105.0" layoutY="313.0" text="Speed:" />

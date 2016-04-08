@@ -6,14 +6,12 @@
 package fxml;
 
 import java.io.IOException;
-import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
+import javafx.scene.layout.BorderPane;
 import stillStandFMS.StillStandFMS;
 
 /**
@@ -21,27 +19,38 @@ import stillStandFMS.StillStandFMS;
  * @author QYL
  */
 public class MenuOverviewController {
-    private StillStandFMS stillStandFMS; 
-    private Scene scene;
-    public void setStillStandFMS(StillStandFMS stillStandFMS,Scene scene){
-        this.stillStandFMS = stillStandFMS;
-        this.scene = scene;
+    private BorderPane rootBorder;
+    private FXMLLoader loaderCenter;
+    private FXMLLoader loaderLeft;
+    public void setStillStandFMS(BorderPane rootBorder){
+        this.rootBorder = rootBorder;
     }
     @FXML
-    public void handleMenuAFXML() {
-        try {
-            // Localisation du fichier FXML.
-            String adresse="FXML.fxml";
-            // Localisation du fichier FXML.
-            final URL url = getClass().getResource(adresse);
-            // Création du loader.
-            final FXMLLoader fxmlLoader = new FXMLLoader(url);        
-            // Chargement du FXML.
-            final Pane root = (Pane) fxmlLoader.load();            
-            scene.setRoot(root);
+    public void handleEntrerGoAroundPage() {        
+        try {                    
+            loaderLeft = new FXMLLoader();
+            loaderLeft.setLocation(StillStandFMS.class.getResource("../fxml/FXML.fxml"));
+            AnchorPane FXMLViewLeft = (AnchorPane) loaderLeft.load();
+            rootBorder.setLeft(FXMLViewLeft);
+            
+            loaderCenter = new FXMLLoader();
+            loaderCenter.setLocation(StillStandFMS.class.getResource("../fxml/fxmlGoAround.fxml"));
+            AnchorPane FXMLViewCenter = (AnchorPane) loaderCenter.load();
+            rootBorder.setCenter(FXMLViewCenter);
         } catch (IOException ex) {
             Logger.getLogger(MenuOverviewController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-       //stillStandFMS.setStage(scene);      
+        }   
+        
+        chargerFXMLController();
+        chargerGoAroundController();
+    }    
+    public void chargerFXMLController(){
+        FXMLController fxmlController=loaderLeft.getController();
+        fxmlController.setFXMLController(rootBorder);
+    }
+    
+    public void chargerGoAroundController(){
+        fxmlGoAroundController GoAroundController = loaderCenter.getController();
+        GoAroundController.setGoAround(rootBorder);  
     }
 }
