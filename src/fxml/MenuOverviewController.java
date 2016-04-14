@@ -28,10 +28,7 @@ public class MenuOverviewController {
     @FXML
     public void handleEntrerGoAroundPage() {        
         try {                    
-            loaderLeft = new FXMLLoader();
-            loaderLeft.setLocation(StillStandFMS.class.getResource("../fxml/FXML.fxml"));
-            AnchorPane FXMLViewLeft = (AnchorPane) loaderLeft.load();
-            rootBorder.setLeft(FXMLViewLeft);
+            chargerFXML();
             
             loaderCenter = new FXMLLoader();
             loaderCenter.setLocation(StillStandFMS.class.getResource("../fxml/fxmlGoAround.fxml"));
@@ -44,6 +41,35 @@ public class MenuOverviewController {
         chargerFXMLController();
         chargerGoAroundController();
     }    
+    
+    @FXML
+    public void handleEntrerAPPRPage() {        
+        try {                    
+            chargerFXML();
+            
+            loaderCenter = new FXMLLoader();
+            loaderCenter.setLocation(StillStandFMS.class.getResource("../fxml/APPR.fxml"));
+            AnchorPane FXMLViewCenter = (AnchorPane) loaderCenter.load();
+            rootBorder.setCenter(FXMLViewCenter);
+        } catch (IOException ex) {
+            Logger.getLogger(MenuOverviewController.class.getName()).log(Level.SEVERE, null, ex);
+        }   
+        
+        chargerFXMLController();
+        chargerAPPRController();
+    }    
+    
+    public void chargerFXML(){
+        try {
+            loaderLeft = new FXMLLoader();
+            loaderLeft.setLocation(StillStandFMS.class.getResource("../fxml/FXML.fxml"));
+            AnchorPane FXMLViewLeft = (AnchorPane) loaderLeft.load();
+            rootBorder.setLeft(FXMLViewLeft);
+        } catch (IOException ex) {
+            Logger.getLogger(MenuOverviewController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     public void chargerFXMLController(){
         FXMLController fxmlController=loaderLeft.getController();
         fxmlController.setFXMLController(rootBorder);
@@ -52,5 +78,10 @@ public class MenuOverviewController {
     public void chargerGoAroundController(){
         fxmlGoAroundController GoAroundController = loaderCenter.getController();
         GoAroundController.setGoAround(rootBorder);  
+    }
+    
+    public void chargerAPPRController(){
+        APPRController apprController = loaderCenter.getController();
+        apprController.setAPPRController(rootBorder);
     }
 }

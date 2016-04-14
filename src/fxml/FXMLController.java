@@ -20,6 +20,7 @@ import stillStandFMS.StillStandFMS;
  */
 public class FXMLController {
     private BorderPane rootBorder;
+    FXMLLoader loaderCenter = null;
     
     public void setFXMLController(BorderPane rootBorder){
         this.rootBorder = rootBorder;
@@ -28,23 +29,57 @@ public class FXMLController {
     @FXML
     public void handleEntrerAPPR(){
         try {                    
-            FXMLLoader loaderCenter = new FXMLLoader();
+            loaderCenter = new FXMLLoader();
             loaderCenter.setLocation(StillStandFMS.class.getResource("../fxml/APPR.fxml"));
             AnchorPane FXMLViewCenter = (AnchorPane) loaderCenter.load();
             rootBorder.setCenter(FXMLViewCenter);
         } catch (IOException ex) {
             Logger.getLogger(MenuOverviewController.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        chargerAPPRController();
     }
     @FXML
     public void handleEntrerGA(){
         try {                    
-            FXMLLoader loaderCenter = new FXMLLoader();
+            loaderCenter = new FXMLLoader();
             loaderCenter.setLocation(StillStandFMS.class.getResource("../fxml/fxmlGoAround.fxml"));
             AnchorPane FXMLViewCenter = (AnchorPane) loaderCenter.load();
             rootBorder.setCenter(FXMLViewCenter);
         } catch (IOException ex) {
             Logger.getLogger(MenuOverviewController.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        chargerGoAroundController();
+    }
+    
+    @FXML
+    public void handleEntrerMenu(){
+        try {                    
+            loaderCenter = new FXMLLoader();
+            loaderCenter.setLocation(StillStandFMS.class.getResource("../fxml/Menu.fxml"));
+            AnchorPane FXMLViewCenter = (AnchorPane) loaderCenter.load();
+            rootBorder.setCenter(FXMLViewCenter);
+            rootBorder.setLeft(null);
+        } catch (IOException ex) {
+            Logger.getLogger(MenuOverviewController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        chargerMenuController();
+    }
+    
+    public void chargerGoAroundController(){
+        fxmlGoAroundController GoAroundController = loaderCenter.getController();
+        GoAroundController.setGoAround(rootBorder);  
+    }
+    
+    public void chargerAPPRController(){
+        APPRController apprController = loaderCenter.getController();
+        apprController.setAPPRController(rootBorder);
+    }
+    
+    public void chargerMenuController(){
+        MenuOverviewController apprController = loaderCenter.getController();
+        apprController.setStillStandFMS(rootBorder);
     }
 }
