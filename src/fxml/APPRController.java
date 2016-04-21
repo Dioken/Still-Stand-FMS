@@ -18,10 +18,10 @@ import stillStandFMS.StillStandFMS;
  *
  * @author QYL
  */
-public class fxmlGoAroundController {    
+public class APPRController {
     private BorderPane rootBorder;
     
-    public void setGoAround(BorderPane rootBorder){
+    public void setAPPRController(BorderPane rootBorder){
         this.rootBorder = rootBorder;
     }
 
@@ -36,6 +36,4 @@ public class fxmlGoAroundController {
             Logger.getLogger(MenuOverviewController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
-    
 }

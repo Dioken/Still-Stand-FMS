@@ -4,7 +4,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="425.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" >
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="425.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Pane prefHeight="400.0" prefWidth="425.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -13,14 +13,18 @@
             <Button layoutX="312.0" layoutY="142.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" text="VALIDER" />
             <Button layoutX="311.0" layoutY="200.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" text="LISTER" />
             <Label layoutX="151.0" layoutY="26.0" prefHeight="17.0" prefWidth="57.0" text="FLN PAGE" />
-            <Label layoutX="32.0" layoutY="85.0" text="FROM" />
-            <TextField layoutX="93.0" layoutY="81.0" />
-            <Label layoutX="25.0" layoutY="146.0" text="300000" />
-            <Label layoutX="43.0" layoutY="192.0" prefHeight="17.0" prefWidth="253.0" text="---------------------- F-PLN ----------------------" />
-            <Label layoutX="31.0" layoutY="244.0" text="DEST" />
-            <Label layoutX="115.0" layoutY="244.0" text="UTC" />
-            <Label layoutX="184.0" layoutY="244.0" text="DIST" />
-            <Label layoutX="268.0" layoutY="244.0" text="EFOOB" />
+            <Label layoutX="31.0" layoutY="73.0" text="FROM" />
+            <TextField layoutX="95.0" layoutY="69.0" />
+            <Label layoutX="28.0" layoutY="192.0" text="300000" />
+            <Label layoutX="31.0" layoutY="233.0" prefHeight="17.0" prefWidth="253.0" text="---------------------- F-PLN ----------------------" />
+            <Label layoutX="33.0" layoutY="272.0" text="DEST" />
+            <Label layoutX="119.0" layoutY="272.0" text="UTC" />
+            <Label layoutX="180.0" layoutY="272.0" text="DIST" />
+            <Label layoutX="269.0" layoutY="272.0" text="EFOOB" />
+            <Label layoutX="27.0" layoutY="118.0" prefHeight="17.0" prefWidth="48.0" text="WHERE" />
+            <Label layoutX="31.0" layoutY="159.0" prefHeight="17.0" prefWidth="39.0" text="RADIO" />
+            <TextField layoutX="95.0" layoutY="114.0" />
+            <TextField layoutX="95.0" layoutY="155.0" prefHeight="25.0" prefWidth="70.0" />
          </children>
       </Pane>
    </children>

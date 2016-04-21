@@ -13,6 +13,7 @@
          <children>
             <VBox alignment="CENTER" prefHeight="400.0" prefWidth="150.0" style="-fx-spacing: 20;">
                <children>
+                  <Button mnemonicParsing="false" onAction="#handleEntrerMenu" prefHeight="25.0" prefWidth="63.0" text="MENU" />
                   <Button mnemonicParsing="false" onAction="#handleEntrerAPPR" prefHeight="25.0" prefWidth="63.0" text="APPR" />
                     <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="63.0" text="DES" />
                     <Button mnemonicParsing="false" onAction="#handleEntrerGA" prefHeight="25.0" prefWidth="63.0" text="GA" />

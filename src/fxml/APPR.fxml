@@ -8,7 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="425.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="425.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxml.APPRController">
    <children>
       
       <Pane prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -51,7 +51,7 @@
              <Label layoutX="198.0" layoutY="246.0" text="VLS" />
              <Label layoutX="68.0" layoutY="261.0" text="137" textFill="#11cdee" />
              <Label layoutX="196.0" layoutY="261.0" text="132" textFill="#09b52c" />
-             <Button layoutX="93.0" layoutY="352.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="90.0" text="FLN PAGE" />
+             <Button layoutX="93.0" layoutY="352.0" mnemonicParsing="false" onAction="#handleEntererFLNPage" prefHeight="23.0" prefWidth="90.0" text="FLN PAGE" />
          </children></Pane>
    </children>
 </AnchorPane>
