@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package fxml;
+package controller;
 
 import java.awt.Button;
 import java.io.IOException;
@@ -13,84 +13,80 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
-import stillStandFMS.StillStandFMS;
+import main.StillStandFMS;
 
 /**
  *
  * @author QYL
  */
-public class FXMLController {
-    private BorderPane rootBorder;
-
+public class MenuOverviewController {
+     @FXML //  fx:id="myButton"
     private Button jbuttonCLB;
-
-    FXMLLoader loaderCenter = null;
-
-    
-    public void setFXMLController(BorderPane rootBorder){
+    private BorderPane rootBorder;
+    private FXMLLoader loaderCenter;
+    private FXMLLoader loaderLeft;
+    public void setStillStandFMS(BorderPane rootBorder){
         this.rootBorder = rootBorder;
     }
-    
     @FXML
-    public void handleEntrerAPPR(){
-          
+    public void handleEntrerGoAroundPage() {    
+        //System.out.println("Test "+jbuttonCLB.getSize());
         try {                    
+            chargerFXML();
+            
             loaderCenter = new FXMLLoader();
-            loaderCenter.setLocation(StillStandFMS.class.getResource("../fxml/APPR.fxml"));
+            loaderCenter.setLocation(StillStandFMS.class.getResource("/view/GoAround.fxml"));
             AnchorPane FXMLViewCenter = (AnchorPane) loaderCenter.load();
-            rootBorder.setCenter(FXMLViewCenter);
-          
-        } catch (IOException ex) {
-            Logger.getLogger(MenuOverviewController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        chargerAPPRController();
-    }
-    @FXML
-    public void handleEntrerGA(){
-        try {                    
-            loaderCenter = new FXMLLoader();
-            loaderCenter.setLocation(StillStandFMS.class.getResource("../fxml/fxmlGoAround.fxml"));
-            AnchorPane FXMLViewCenter = (AnchorPane) loaderCenter.load();
+            
             rootBorder.setCenter(FXMLViewCenter);
         } catch (IOException ex) {
             Logger.getLogger(MenuOverviewController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }   
         
+        chargerFXMLController();
         chargerGoAroundController();
-    }
+    }    
     
     @FXML
-    public void handleEntrerMenu(){
+    public void handleEntrerAPPRPage() {        
         try {                    
+            chargerFXML();
+            
             loaderCenter = new FXMLLoader();
-            loaderCenter.setLocation(StillStandFMS.class.getResource("../fxml/Menu.fxml"));
+            loaderCenter.setLocation(StillStandFMS.class.getResource("/view/APPR.fxml"));
             AnchorPane FXMLViewCenter = (AnchorPane) loaderCenter.load();
             rootBorder.setCenter(FXMLViewCenter);
-            rootBorder.setLeft(null);
+        } catch (IOException ex) {
+            Logger.getLogger(MenuOverviewController.class.getName()).log(Level.SEVERE, null, ex);
+        }   
+        
+        chargerFXMLController();
+        chargerAPPRController();
+    }    
+    
+    public void chargerFXML(){
+        try {
+            loaderLeft = new FXMLLoader();
+            loaderLeft.setLocation(StillStandFMS.class.getResource("/view/FXML.fxml"));
+            AnchorPane FXMLViewLeft = (AnchorPane) loaderLeft.load();
+            rootBorder.setLeft(FXMLViewLeft);
         } catch (IOException ex) {
             Logger.getLogger(MenuOverviewController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        chargerMenuController();
+    }
+    
+    public void chargerFXMLController(){
+        FXMLController fxmlController=loaderLeft.getController();
+        fxmlController.setFXMLController(rootBorder);
     }
     
     public void chargerGoAroundController(){
-        fxmlGoAroundController GoAroundController = loaderCenter.getController();
+        GoAroundController GoAroundController = loaderCenter.getController();
         GoAroundController.setGoAround(rootBorder);  
     }
     
     public void chargerAPPRController(){
         APPRController apprController = loaderCenter.getController();
         apprController.setAPPRController(rootBorder);
-    }
-    
-    public void chargerMenuController(){
-        MenuOverviewController apprController = loaderCenter.getController();
-        apprController.setStillStandFMS(rootBorder);
-    }
-    @FXML
-    public void DeclencherAction(){
-         System.out.println(jbuttonCLB.getSize());
     }
 }

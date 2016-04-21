@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package fxml;
+package controller;
 
 import java.io.IOException;
 import java.util.logging.Level;
@@ -12,13 +12,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
-import stillStandFMS.StillStandFMS;
+import main.StillStandFMS;
 
 /**
  *
  * @author QYL
  */
-public class fxmlGoAroundController {    
+public class GoAroundController {    
     private BorderPane rootBorder;
     
     public void setGoAround(BorderPane rootBorder){
@@ -29,7 +29,7 @@ public class fxmlGoAroundController {
     public void handleEntererFLNPage() {
         try {                    
             FXMLLoader loaderCenter = new FXMLLoader();
-            loaderCenter.setLocation(StillStandFMS.class.getResource("../fxml/fxmlFLNpage.fxml"));
+            loaderCenter.setLocation(StillStandFMS.class.getResource("../view/FLNpage.fxml"));
             AnchorPane FXMLViewCenter = (AnchorPane) loaderCenter.load();
             rootBorder.setCenter(FXMLViewCenter);
         } catch (IOException ex) {
