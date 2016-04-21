@@ -18,31 +18,22 @@ import main.StillStandFMS;
  *
  * @author QYL
  */
-public class GoAroundController {    
+public class FLNpageController {
     private BorderPane rootBorder;
-    FXMLLoader loaderCenter = null;
     
-    public void setGoAround(BorderPane rootBorder){
+    public void setFLNpageController(BorderPane rootBorder){
         this.rootBorder = rootBorder;
     }
-
     @FXML
-    public void handleEntererFLNPage() {
+    public void handleEntererListe(){
         try {                    
-            loaderCenter = new FXMLLoader();
-            loaderCenter.setLocation(StillStandFMS.class.getResource("../view/FLNpage.fxml"));
+            FXMLLoader loaderCenter = new FXMLLoader();
+            loaderCenter.setLocation(StillStandFMS.class.getResource("/view/Liste.fxml"));
             AnchorPane FXMLViewCenter = (AnchorPane) loaderCenter.load();
             rootBorder.setCenter(FXMLViewCenter);
         } catch (IOException ex) {
             Logger.getLogger(MenuOverviewController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        chargerFLNController();
-    }
-    
-    public void chargerFLNController(){
-        FLNpageController flnController = loaderCenter.getController();
-        flnController.setFLNpageController(rootBorder);  
     }
     
 }

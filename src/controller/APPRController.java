@@ -20,6 +20,7 @@ import main.StillStandFMS;
  */
 public class APPRController {
     private BorderPane rootBorder;
+    FXMLLoader loaderCenter = null;
     
     public void setAPPRController(BorderPane rootBorder){
         this.rootBorder = rootBorder;
@@ -28,12 +29,19 @@ public class APPRController {
     @FXML
     public void handleEntererFLNPage() {
         try {                    
-            FXMLLoader loaderCenter = new FXMLLoader();
+            loaderCenter = new FXMLLoader();
             loaderCenter.setLocation(StillStandFMS.class.getResource("../view/FLNpage.fxml"));
             AnchorPane FXMLViewCenter = (AnchorPane) loaderCenter.load();
             rootBorder.setCenter(FXMLViewCenter);
         } catch (IOException ex) {
             Logger.getLogger(MenuOverviewController.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        chargerFLNController();
+    }
+    
+    public void chargerFLNController(){
+        FLNpageController flnController = loaderCenter.getController();
+        flnController.setFLNpageController(rootBorder);  
     }
 }
