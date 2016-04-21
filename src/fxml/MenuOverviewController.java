@@ -5,6 +5,7 @@
  */
 package fxml;
 
+import java.awt.Button;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -19,6 +20,8 @@ import stillStandFMS.StillStandFMS;
  * @author QYL
  */
 public class MenuOverviewController {
+     @FXML //  fx:id="myButton"
+    private Button jbuttonCLB;
     private BorderPane rootBorder;
     private FXMLLoader loaderCenter;
     private FXMLLoader loaderLeft;
@@ -26,7 +29,8 @@ public class MenuOverviewController {
         this.rootBorder = rootBorder;
     }
     @FXML
-    public void handleEntrerGoAroundPage() {        
+    public void handleEntrerGoAroundPage() {    
+        System.out.println("Test "+jbuttonCLB.getSize());
         try {                    
             loaderLeft = new FXMLLoader();
             loaderLeft.setLocation(StillStandFMS.class.getResource("../fxml/FXML.fxml"));
@@ -36,6 +40,7 @@ public class MenuOverviewController {
             loaderCenter = new FXMLLoader();
             loaderCenter.setLocation(StillStandFMS.class.getResource("../fxml/fxmlGoAround.fxml"));
             AnchorPane FXMLViewCenter = (AnchorPane) loaderCenter.load();
+            
             rootBorder.setCenter(FXMLViewCenter);
         } catch (IOException ex) {
             Logger.getLogger(MenuOverviewController.class.getName()).log(Level.SEVERE, null, ex);

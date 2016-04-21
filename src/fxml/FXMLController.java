@@ -5,6 +5,7 @@
  */
 package fxml;
 
+import java.awt.Button;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -20,6 +21,8 @@ import stillStandFMS.StillStandFMS;
  */
 public class FXMLController {
     private BorderPane rootBorder;
+     @FXML //  fx:id="myButton"
+    private Button jbuttonCLB;
     
     public void setFXMLController(BorderPane rootBorder){
         this.rootBorder = rootBorder;
@@ -27,11 +30,13 @@ public class FXMLController {
     
     @FXML
     public void handleEntrerAPPR(){
+          
         try {                    
             FXMLLoader loaderCenter = new FXMLLoader();
             loaderCenter.setLocation(StillStandFMS.class.getResource("../fxml/APPR.fxml"));
             AnchorPane FXMLViewCenter = (AnchorPane) loaderCenter.load();
             rootBorder.setCenter(FXMLViewCenter);
+          
         } catch (IOException ex) {
             Logger.getLogger(MenuOverviewController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -46,5 +51,9 @@ public class FXMLController {
         } catch (IOException ex) {
             Logger.getLogger(MenuOverviewController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    @FXML
+    public void DeclencherAction(){
+         System.out.println(jbuttonCLB.getSize());
     }
 }

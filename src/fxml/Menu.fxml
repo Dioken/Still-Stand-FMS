@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.effect.*?>
-<?import javafx.geometry.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 
-<AnchorPane id="AnchorPane" centerShape="true" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxml.MenuOverviewController">
+<AnchorPane id="AnchorPane" centerShape="true" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxml.MenuOverviewController">
    <children>
       <Pane prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label layoutX="258.0" layoutY="26.0" prefHeight="19.0" prefWidth="85.0" text="MCDU  MENU" />
             <Button layoutX="197.0" layoutY="75.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="61.0" text="CRZ" textAlignment="CENTER" />
-            <Button layoutX="166.0" layoutY="119.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="61.0" text="CLB" textAlignment="CENTER" />
+            <Button fx:id="jbuttonCLB" layoutX="166.0" layoutY="119.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="61.0" text="CLB" textAlignment="CENTER" />
             <Button layoutX="136.0" layoutY="166.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="61.0" text="T/O" textAlignment="CENTER" />
             <Button layoutX="106.0" layoutY="218.0" mnemonicParsing="false" text="PRE FLT" textAlignment="CENTER" />
             <Button layoutX="343.0" layoutY="75.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="61.0" text="AES" textAlignment="CENTER" />
