@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="150.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FXMLController">
+   <children>
+      <Pane prefHeight="400.0" prefWidth="150.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <VBox alignment="CENTER" prefHeight="400.0" prefWidth="150.0" style="-fx-spacing: 20;">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#handleEntrerMenu" prefHeight="25.0" prefWidth="63.0" text="MENU" />
+                  <Button mnemonicParsing="false" onAction="#handleEntrerAPPR" prefHeight="25.0" prefWidth="63.0" text="APPR" />
+                    <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="63.0" text="DES" />
+                    <Button mnemonicParsing="false" onAction="#handleEntrerGA" prefHeight="25.0" prefWidth="63.0" text="GA" />
+                    <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="63.0" text="DONE" />
+                    <Button mnemonicParsing="false" text="PREF FLT" />
+                    <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="63.0" text="T/O" />
+                    <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="63.0" text="CLB" />
+                    <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="63.0" text="CRZ" />
+               </children>
+            </VBox>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

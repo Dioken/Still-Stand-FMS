@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="425.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GoAroundController">
+   <children>
+      <Pane nodeOrientation="LEFT_TO_RIGHT" prefHeight="400.0" prefWidth="425.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label layoutX="175.0" layoutY="33.0" text="GO AROUND" />
+            <Label layoutX="112.0" layoutY="65.0" text="FLP RETR" />
+            <Label layoutX="115.0" layoutY="80.0" text="F = 146" />
+            <Label layoutX="111.0" layoutY="110.0" text="SLT RETR" />
+            <Label layoutX="115.0" layoutY="125.0" text="S = 186" />
+            <Label layoutX="116.0" layoutY="154.0" text="CLEAN" />
+            <Label layoutX="110.0" layoutY="169.0" text="O = 208" />
+            <Button layoutX="42.0" layoutY="357.0" mnemonicParsing="false" onAction="#handleEntererFLNPage" text="FLN page" />
+            <Label layoutX="67.0" layoutY="219.0" prefHeight="23.0" prefWidth="98.0" text="THR RED/ACC" />
+            <Label layoutX="248.0" layoutY="223.0" text="ENG OUT ACC" />
+            <Label layoutX="77.0" layoutY="250.0" text="1580" />
+            <Label layoutX="123.0" layoutY="250.0" text="1580" />
+            <Label layoutX="113.0" layoutY="250.0" prefHeight="15.0" prefWidth="0.0" text="/" />
+            <Label layoutX="299.0" layoutY="250.0" text="1580" /> 
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="425.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FLNpageController">
+   <children>
+      <Pane prefHeight="400.0" prefWidth="425.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Button layoutX="310.0" layoutY="43.0" mnemonicParsing="false" text="MODIFIER" />
+            <Button layoutX="311.0" layoutY="93.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" text="INSERER" />
+            <Button layoutX="312.0" layoutY="142.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" text="VALIDER" />
+            <Button layoutX="311.0" layoutY="200.0" mnemonicParsing="false" onAction="#handleEntererListe" prefHeight="25.0" prefWidth="70.0" text="LISTER" />
+            <Label layoutX="151.0" layoutY="26.0" prefHeight="17.0" prefWidth="57.0" text="FLN PAGE" />
+            <Label layoutX="32.0" layoutY="85.0" text="FROM" />
+            <TextField layoutX="93.0" layoutY="81.0" />
+            <Label layoutX="26.0" layoutY="240.0" text="300000" />
+            <TextField layoutX="93.0" layoutY="118.0" />
+            <Label layoutX="34.0" layoutY="122.0" text="DEST" />
+            <Label layoutX="35.0" layoutY="160.0" text="DIST" />
+            <TextField layoutX="93.0" layoutY="156.0" />
+            <TextField layoutX="92.0" layoutY="200.0" />
+            <Label layoutX="34.0" layoutY="204.0" text="RADIO" />
+            <Label alignment="CENTER" contentDisplay="TOP" layoutX="35.0" layoutY="255.0" prefHeight="15.0" prefWidth="308.0" text="FLN" textAlignment="CENTER" textOverrun="CLIP" />
+            <Label layoutX="56.0" layoutY="289.0" text="FROM" />
+            <Label layoutX="146.0" layoutY="289.0" text="DEST" />
+            <Label layoutX="230.0" layoutY="289.0" text="DIST" />
+            <Label layoutX="312.0" layoutY="287.0" text="RADIO" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
