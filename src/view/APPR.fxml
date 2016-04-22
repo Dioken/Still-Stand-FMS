@@ -8,50 +8,77 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="425.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.APPRController">
+<AnchorPane id="AnchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.APPRController">
    <children>
-      
-      <Pane prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <columnConstraints>
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
          <children>
-            <Label layoutX="203.0" layoutY="25.0" prefHeight="27.0" prefWidth="52.0" text="APPR" textFill="#09b52c">
+            <Label prefHeight="27.0" prefWidth="52.0" text="APPR" textFill="#09b52c" GridPane.columnIndex="2" GridPane.rowIndex="2">
                 <font>
                    <Font size="18.0" />
                 </font>
              </Label>
-             <Label layoutX="73.0" layoutY="45.0" prefHeight="15.0" prefWidth="37.0" text="DEST" />
-             <Label layoutX="73.0" layoutY="69.0" text="QNH" />
-             <Label layoutX="193.0" layoutY="69.0" text="FLP_RETR" />
-             <Label layoutX="325.0" layoutY="69.0" text="FINAL" />
-             <Label layoutX="72.0" layoutY="84.0" text="1015" textFill="#11cdee" />
-             <Label layoutX="193.0" layoutY="84.0" text="F=" />
-             <Label layoutX="218.0" layoutY="84.0" text="116" textFill="#09b52c" />
-             <Label layoutX="327.0" layoutY="84.0" text="ILS27R" textFill="#09b52c" />
-             <Label layoutX="72.0" layoutY="113.0" text="TEMP" />
-             <Label layoutX="194.0" layoutY="113.0" text="SLT_RETR" />
-             <Label layoutX="327.0" layoutY="113.0" text="MDA" />
-             <Label layoutX="73.0" layoutY="128.0" text="15°" textFill="#11cdee" />
-             <Label layoutX="326.0" layoutY="128.0" text="280" textFill="#11cdee" />
-             <Label layoutX="194.0" layoutY="128.0" text="S=" />
-             <Label layoutX="218.0" layoutY="128.0" text="186" textFill="#09b52c" />
-             <Label layoutX="50.0" layoutY="157.0" text="MAG" />
-             <Label layoutX="95.0" layoutY="157.0" text="WIND" />
-             <Label layoutX="53.0" layoutY="172.0" text="240" textFill="#11cdee" />
-             <Label layoutX="95.0" layoutY="172.0" text="12" textFill="#11cdee" />
-             <Label layoutX="81.0" layoutY="172.0" text="°/" textFill="#11cdee" />
-             <Label layoutX="196.0" layoutY="157.0" text="CLEAN" />
-             <Label layoutX="194.0" layoutY="172.0" text="O=" />
-             <Label layoutX="218.0" layoutY="172.0" text="208" textFill="#09b52c" />
-             <Label layoutX="329.0" layoutY="157.0" text="DH" />
-             <Label layoutX="332.0" layoutY="172.0" text="[ ]" textFill="#11cdee" />
-             <Label layoutX="55.0" layoutY="198.0" text="TRANS ALT" />
-             <Label layoutX="314.0" layoutY="198.0" text="LDG CONF" />
-             <Label layoutX="68.0" layoutY="213.0" text="6000" textFill="#11cdee" />
-             <Label layoutX="326.0" layoutY="213.0" text="CONF3*" textFill="#11cdee" />
-             <Label layoutX="68.0" layoutY="246.0" text="VAPP" />
-             <Label layoutX="198.0" layoutY="246.0" text="VLS" />
-             <Label layoutX="68.0" layoutY="261.0" text="137" textFill="#11cdee" />
-             <Label layoutX="196.0" layoutY="261.0" text="132" textFill="#09b52c" />
-             <Button layoutX="93.0" layoutY="352.0" mnemonicParsing="false" onAction="#handleEntererFLNPage" prefHeight="23.0" prefWidth="90.0" text="FLN PAGE" />
-         </children></Pane>
+             <Label prefHeight="15.0" prefWidth="37.0" text="DEST" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+             <Label text="QNH" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+             <Label text="1015" textFill="#11cdee" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+             <Label text="FLP_RETR" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+             <Label text="F=110" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+             <Label text="FINAL" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+             <Label text="ILS27R" textFill="#09b52c" GridPane.columnIndex="3" GridPane.rowIndex="7" />
+             <Label text="TEMP" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+             <Label text="15°" textFill="#11cdee" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+             <Label text="SLT_RETR" GridPane.columnIndex="2" GridPane.rowIndex="9" />
+             <Label text="S=186" GridPane.columnIndex="2" GridPane.rowIndex="10" />
+             <Label text="MDA" GridPane.columnIndex="3" GridPane.rowIndex="9" />
+             <Label text="280" textFill="#11cdee" GridPane.columnIndex="3" GridPane.rowIndex="10" />
+             <Label text="MAG  WIND" GridPane.columnIndex="1" GridPane.rowIndex="12" />
+             <Label text="CLEAN" GridPane.columnIndex="2" GridPane.rowIndex="12" />
+             <Label text="DH" GridPane.columnIndex="3" GridPane.rowIndex="12" />
+             <Label text="240 °/ 12" textFill="#11cdee" GridPane.columnIndex="1" GridPane.rowIndex="13" />
+             <Label text="O=208" GridPane.columnIndex="2" GridPane.rowIndex="13" />
+             <Label text="[ ]" textFill="#11cdee" GridPane.columnIndex="3" GridPane.rowIndex="13" />
+             <Label text="TRANS ALT" GridPane.columnIndex="1" GridPane.rowIndex="15" />
+             <Label text="6000" textFill="#11cdee" GridPane.columnIndex="1" GridPane.rowIndex="16" />
+             <Label text="LDG CONF" GridPane.columnIndex="3" GridPane.rowIndex="15" />
+             <Label text="CONF3*" textFill="#11cdee" GridPane.columnIndex="3" GridPane.rowIndex="16" />
+             <Label text="VAPP" GridPane.columnIndex="1" GridPane.rowIndex="18" />
+             <Label text="137" textFill="#11cdee" GridPane.columnIndex="1" GridPane.rowIndex="19" />
+             <Label text="VLS" GridPane.columnIndex="2" GridPane.rowIndex="18" />
+             <Label text="132" textFill="#09b52c" GridPane.columnIndex="2" GridPane.rowIndex="19" />
+             <Button mnemonicParsing="false" onAction="#handleEntererFLNPage" prefHeight="23.0" prefWidth="90.0" text="FLN PAGE" GridPane.columnIndex="1" GridPane.rowIndex="21" />
+         </children>
+      </GridPane>
    </children>
 </AnchorPane>

@@ -6,6 +6,8 @@
 package main;
 
 import controller.MenuOverviewController;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.io.IOException;
 import java.net.URL;
 import java.util.logging.Level;
@@ -19,6 +21,8 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javax.swing.UIDefaults;
+import javax.swing.UIManager;
 
 /**
  *
@@ -32,8 +36,12 @@ public class StillStandFMS extends Application {
     
     @Override
     public void start(Stage primaryStage) {
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         this.primaryStage = primaryStage;
+        this.primaryStage.setHeight(screenSize.getHeight());
+        this.primaryStage.setWidth(screenSize.getWidth());
         this.primaryStage.setTitle("MCDU"); 
+
         initRootLayout();
         showMenuView();   
         chargerMenuController(); 

@@ -31,6 +31,9 @@ public class FLNpageController {
             loaderCenter.setLocation(StillStandFMS.class.getResource("/view/Liste.fxml"));
             AnchorPane FXMLViewCenter = (AnchorPane) loaderCenter.load();
             rootBorder.setCenter(FXMLViewCenter);
+            ListCheminController controller = loaderCenter.getController();
+            controller.setList();
+            
         } catch (IOException ex) {
             Logger.getLogger(MenuOverviewController.class.getName()).log(Level.SEVERE, null, ex);
         }
