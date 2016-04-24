@@ -34,12 +34,6 @@ public class ListCheminController {
     @FXML
     private TableView<ListChemin> listTable;
     
-    public ListCheminController (){
-        listCheminsData.add(new ListChemin("from1","dest1","dist1","radio1"));
-        listCheminsData.add(new ListChemin("from2","dest2","dist2","radio2"));
-        listCheminsData.add(new ListChemin("from3","dest3","dist3","radio3"));
-    }
-    
     public ObservableList<ListChemin> getListChemins() {
         return listCheminsData;
     }
@@ -53,7 +47,10 @@ public class ListCheminController {
         radioColumn.setCellValueFactory(cellData -> cellData.getValue().radioProperty());
     }
     
-    public void setList(){
+    public void afficherList(){
         listTable.setItems(getListChemins());
+    }        
+    public void setList(String from,String dest,String dist,String radio){
+        listCheminsData.add(new ListChemin(from,dest,dist,radio));        
     }
 }

@@ -73,7 +73,7 @@ public class StillStandFMS extends Application {
             loaderCenter.setLocation(StillStandFMS.class.getResource("/view/Menu.fxml"));
             AnchorPane personOverview = (AnchorPane) loaderCenter.load();
              // Set person overview into the center of root layout.
-            rootBorder.setCenter(personOverview);
+            rootBorder.setCenter(personOverview);            
         } catch (IOException ex) {
           //System.err.println("Erreur au chargement: " + ex.getMessage()+ex.getCause());
           ex.printStackTrace();
