@@ -5,12 +5,12 @@
  */
 package controller;
 
-import java.awt.Button;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import main.StillStandFMS;
@@ -20,8 +20,9 @@ import main.StillStandFMS;
  * @author QYL
  */
 public class MenuOverviewController {
-     @FXML //  fx:id="myButton"
-    private Button jbuttonCLB;
+    @FXML
+    private Button boutonGA;
+    boolean secondCliked = false;
     private BorderPane rootBorder;
     private FXMLLoader loaderCenter;
     private FXMLLoader loaderLeft;
@@ -30,21 +31,14 @@ public class MenuOverviewController {
     }
     @FXML
     public void handleEntrerGoAroundPage() {    
-        //System.out.println("Test "+jbuttonCLB.getSize());
-        try {                    
-            chargerFXML();
+        if(secondCliked){
+          executeDeclencheGA();
+          secondCliked = false;
+        }else{
+           boutonGA.setPrefSize(100, 70);
+           secondCliked = true;
+        }
             
-            loaderCenter = new FXMLLoader();
-            loaderCenter.setLocation(StillStandFMS.class.getResource("/view/GoAround.fxml"));
-            AnchorPane FXMLViewCenter = (AnchorPane) loaderCenter.load();
-            
-            rootBorder.setCenter(FXMLViewCenter);
-        } catch (IOException ex) {
-            Logger.getLogger(MenuOverviewController.class.getName()).log(Level.SEVERE, null, ex);
-        }   
-        
-        chargerFXMLController();
-        chargerGoAroundController();
     }    
     
     @FXML
@@ -62,7 +56,7 @@ public class MenuOverviewController {
         
         chargerFXMLController();
         chargerAPPRController();
-    }    
+    } 
     
     public void chargerFXML(){
         try {
@@ -88,5 +82,24 @@ public class MenuOverviewController {
     public void chargerAPPRController(){
         APPRController apprController = loaderCenter.getController();
         apprController.setAPPRController(rootBorder);
+    }
+    /**
+     * declenche l'action du bouton GA
+     */
+    private void executeDeclencheGA(){
+        try {                    
+            chargerFXML();
+            
+            loaderCenter = new FXMLLoader();
+            loaderCenter.setLocation(StillStandFMS.class.getResource("/view/GoAround.fxml"));
+            AnchorPane FXMLViewCenter = (AnchorPane) loaderCenter.load();
+            
+            rootBorder.setCenter(FXMLViewCenter);
+        } catch (IOException ex) {
+            Logger.getLogger(MenuOverviewController.class.getName()).log(Level.SEVERE, null, ex);
+        }   
+        
+        chargerFXMLController();
+        chargerGoAroundController();
     }
 }

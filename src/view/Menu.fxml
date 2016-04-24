@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.effect.*?>
-<?import javafx.geometry.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane id="AnchorPane" centerShape="true" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MenuOverviewController">
+<AnchorPane id="AnchorPane" centerShape="true" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MenuOverviewController">
    <children>
       <GridPane layoutX="215.0" layoutY="254.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columnConstraints>
@@ -37,12 +37,12 @@
         </rowConstraints>
          <children>
             <Label prefHeight="19.0" prefWidth="85.0" text="MCDU  MENU" GridPane.columnIndex="5" />
-            <Button mnemonicParsing="false" prefHeight="23.0" prefWidth="61.0" text="CRZ" textAlignment="CENTER" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+            <Button fx:id="boutonCRZ" mnemonicParsing="false" prefHeight="23.0" prefWidth="61.0" text="CRZ" textAlignment="CENTER" GridPane.columnIndex="4" GridPane.rowIndex="1" />
             <Button mnemonicParsing="false" prefHeight="23.0" prefWidth="61.0" text="AES" textAlignment="CENTER" GridPane.columnIndex="6" GridPane.rowIndex="1" />
             <Button mnemonicParsing="false" prefHeight="23.0" prefWidth="61.0" text="CLB" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="2" />
             <Button mnemonicParsing="false" onAction="#handleEntrerAPPRPage" prefHeight="23.0" prefWidth="61.0" text="APPR" textAlignment="CENTER" GridPane.columnIndex="7" GridPane.rowIndex="2" />
             <Button mnemonicParsing="false" prefHeight="23.0" prefWidth="61.0" text="T/O" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-            <Button mnemonicParsing="false" onAction="#handleEntrerGoAroundPage" prefHeight="23.0" prefWidth="61.0" text="GA" textAlignment="CENTER" GridPane.columnIndex="8" GridPane.rowIndex="3" />
+            <Button fx:id="boutonGA" mnemonicParsing="false" onAction="#handleEntrerGoAroundPage" prefHeight="23.0" prefWidth="61.0" text="GA" textAlignment="CENTER" GridPane.columnIndex="8" GridPane.rowIndex="3" />
             <Button mnemonicParsing="false" text="PRE FLT" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <Button mnemonicParsing="false" prefHeight="23.0" prefWidth="61.0" text="DONE" textAlignment="CENTER" GridPane.columnIndex="9" GridPane.rowIndex="4" />
             <Label prefHeight="19.0" prefWidth="45.0" text="Fuel:" GridPane.columnIndex="2" GridPane.rowIndex="5" />
@@ -51,6 +51,9 @@
             <Label prefHeight="15.0" prefWidth="85.0" text="25300" GridPane.columnIndex="3" GridPane.rowIndex="5" />
             <Label prefHeight="15.0" prefWidth="77.0" text="0600" GridPane.columnIndex="3" GridPane.rowIndex="6" />
             <Label prefHeight="15.0" prefWidth="70.0" text="00000" GridPane.columnIndex="3" GridPane.rowIndex="7" />
+            <CheckBox mnemonicParsing="false" text="Normal" />
+            <CheckBox mnemonicParsing="false" text="Vibration" GridPane.columnIndex="1" />
+            <CheckBox mnemonicParsing="false" text="Luminosité" GridPane.columnIndex="2" />
          </children>
       </GridPane>
    </children>
