@@ -6,7 +6,7 @@
 package main;
 
 import controller.EtatController.Etat;
-import controller.MenuOverviewController;
+import controller.MenuController;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.io.IOException;
@@ -27,7 +27,7 @@ import javax.swing.UIManager;
 
 /**
  *
- * @author Bah
+ * @author bah
  */
 public class StillStandFMS extends Application {
     
@@ -89,7 +89,7 @@ public class StillStandFMS extends Application {
     }
 
     private void chargerMenuController(){       
-        MenuOverviewController menuController = loaderCenter.getController();
+        MenuController menuController = loaderCenter.getController();
         menuController.setStillStandFMS(rootBorder);
 
     }

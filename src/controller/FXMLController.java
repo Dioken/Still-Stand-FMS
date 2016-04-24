@@ -41,7 +41,7 @@ public class FXMLController {
             rootBorder.setCenter(FXMLViewCenter);
           
         } catch (IOException ex) {
-            Logger.getLogger(MenuOverviewController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         chargerAPPRController();
@@ -54,7 +54,7 @@ public class FXMLController {
             AnchorPane FXMLViewCenter = (AnchorPane) loaderCenter.load();
             rootBorder.setCenter(FXMLViewCenter);
         } catch (IOException ex) {
-            Logger.getLogger(MenuOverviewController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         chargerGoAroundController();
@@ -69,7 +69,7 @@ public class FXMLController {
             rootBorder.setCenter(FXMLViewCenter);
             rootBorder.setLeft(null);
         } catch (IOException ex) {
-            Logger.getLogger(MenuOverviewController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         chargerMenuController();
@@ -86,7 +86,7 @@ public class FXMLController {
     }
     
     public void chargerMenuController(){
-        MenuOverviewController apprController = loaderCenter.getController();
+        MenuController apprController = loaderCenter.getController();
         apprController.setStillStandFMS(rootBorder);
     }
     @FXML

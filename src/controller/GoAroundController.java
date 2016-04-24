@@ -49,7 +49,7 @@ public class GoAroundController {
             
             
         } catch (IOException ex) {
-            Logger.getLogger(MenuOverviewController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         chargerFLNController();

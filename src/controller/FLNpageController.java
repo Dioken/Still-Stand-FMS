@@ -76,7 +76,7 @@ public class FLNpageController {
             //rootBorder.getChildren().get(0).setClip(FXMLLoader);
             //FXMLViewCenter.getChildren().add(loaderDown);
         } catch (IOException ex) {
-            Logger.getLogger(MenuOverviewController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     @FXML
