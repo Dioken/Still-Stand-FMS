@@ -46,6 +46,8 @@ public class StillStandFMS extends Application {
         initRootLayout();
         showMenuView();   
         chargerMenuController(); 
+        
+        
     }
     
     /**
@@ -62,6 +64,7 @@ public class StillStandFMS extends Application {
             Scene scene = new Scene(rootBorder);
             primaryStage.setScene(scene);
             primaryStage.show();
+            //scene.getStylesheets().add("/view/modena.css");
         } catch (IOException ex) {
           ex.printStackTrace();
         }
