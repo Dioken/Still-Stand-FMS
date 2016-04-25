@@ -46,7 +46,7 @@ public class APPRController {
             AnchorPane FXMLViewSplit = (AnchorPane) loaderSplit.load();
             rootSplit.getItems().set(0, FXMLViewSplit);
         } catch (IOException ex) {
-            Logger.getLogger(MenuOverviewController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         chargerFLNController();
