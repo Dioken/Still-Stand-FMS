@@ -26,6 +26,17 @@ public class FLNpageController {
     private BorderPane rootBorder;
     private SplitPane rootSplit;
     private SplitPane splitPane;
+    @FXML
+    private TextField numch;
+    @FXML
+    private TextField from;
+    @FXML
+    private TextField dest;
+    @FXML
+    private TextField dist;
+    @FXML
+    private TextField radio;
+    
     
     
     public void setFLNpageController(BorderPane rootBorder,SplitPane rootSplit){
@@ -99,11 +110,23 @@ public class FLNpageController {
     public void apuyerBtValide(){        
         try {
             FXMLLoader loaderClavier = new FXMLLoader();
-            loaderClavier.setLocation(StillStandFMS.class.getResource("../view/Liste.fxml"));
+            loaderClavier.setLocation(StillStandFMS.class.getResource("../view/FLNpageList.fxml"));
             AnchorPane FXMLViewClavier = (AnchorPane) loaderClavier.load();
             rootSplit.getItems().set(1, FXMLViewClavier);
         } catch (IOException ex) {
             Logger.getLogger(FLNpageController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    
+    
+    @FXML
+    public void chercherChenim(){
+        if(this.numch.getText().equals("L001")){
+            this.from.setText("Gbessia International Airport");
+            this.dest.setText("Paris Charles-de-Gaulle Airport");
+            this.dist.setText("9100 KM");
+            this.radio.setText("1505");
         }
         
     }

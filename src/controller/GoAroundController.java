@@ -47,17 +47,19 @@ public class GoAroundController {
             AnchorPane FXMLViewSplit = (AnchorPane) loaderSplit.load();
             rootSplit.getItems().set(0, FXMLViewSplit);
             
+            /* Ajouter l'ensemble des chemins */
+            FXMLLoader loaderSplit2 = new FXMLLoader();
+            loaderSplit2.setLocation(StillStandFMS.class.getResource("../view/FLNpageList.fxml"));            
+            AnchorPane FXMLViewList = (AnchorPane) loaderSplit2.load();
+            rootSplit.getItems().set(1, FXMLViewList);
+            
             
         } catch (IOException ex) {
             Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        chargerFLNController();
-    }
-    
-    public void chargerFLNController(){
         FLNpageController flnController = loaderSplit.getController();
-        flnController.setFLNpageController(rootBorder,rootSplit);  
+        flnController.setFLNpageController(rootBorder,rootSplit);
     }
     
 }
