@@ -53,7 +53,7 @@
             <Label prefHeight="15.0" prefWidth="70.0" text="00000" GridPane.columnIndex="3" GridPane.rowIndex="7" />
             <CheckBox fx:id="normal" mnemonicParsing="false" onAction="#activeNormal" text="Normal" />
             <CheckBox fx:id="vibration" mnemonicParsing="false" onAction="#activeVibration" text="Vibration" GridPane.columnIndex="1" />
-            <CheckBox fx:id="limunisite" mnemonicParsing="false" onAction="#activeLimuniere" text="Luminosité" GridPane.columnIndex="2" />
+            <CheckBox fx:id="luminosite" mnemonicParsing="false" onAction="#activeLimuniere" text="Luminosité" GridPane.columnIndex="2" />
          </children>
       </GridPane>
    </children>

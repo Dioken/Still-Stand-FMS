@@ -38,9 +38,10 @@ public class MenuController implements Initializable {
     @FXML
     private CheckBox vibration;
     @FXML
-    private CheckBox limunisite;
+    private CheckBox luminosite;
     
- 
+    //Etat dans le conetxte
+    public static Etat etat = Etat.Normal;
     boolean secondCliked = false;
     private BorderPane rootBorder;
     private FXMLLoader loaderCenter;
@@ -54,43 +55,103 @@ public class MenuController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        normal.setSelected(true);
-        vibration.setSelected(false);
-        limunisite.setSelected(false);
+        switch(etat){
+            case Normal:{
+                etat = Etat.Normal;
+                secondCliked = false;
+                normal.setSelected(true);
+                vibration.setSelected(false);
+                luminosite.setSelected(false);
+                break;
+            }
+            case Lumiere:{
+                etat = Etat.Lumiere;
+                secondCliked = false;
+                normal.setSelected(false);
+                vibration.setSelected(false);
+                luminosite.setSelected(true);
+                break;
+            }
+            case Vibration:{
+                etat = Etat.Vibration;
+                secondCliked = false;
+                normal.setSelected(false);
+                vibration.setSelected(true);
+                luminosite.setSelected(false); 
+                break;
+            }
+            case VibLum:{
+                etat = Etat.VibLum;
+                secondCliked = false;
+                normal.setSelected(false);
+                vibration.setSelected(true);
+                luminosite.setSelected(true);
+                break;
+            }
+        }
+        
     }    
     
 
     @FXML
-    private void handleEntrerAPPRPage(ActionEvent event) {
-        
-         if(vibration.isSelected()){
-            if(secondCliked){
-                
-              executeDeclencheAPPR();
-              secondCliked = false;
-            }else{
-               DeclencherAction.declencherAction2(boutonAPPR, 100, 70);
-               secondCliked = true;
-            } 
-         }else{
-            executeDeclencheAPPR();
-         }
-        
+    private void handleEntrerAPPRPage(ActionEvent event) {  
+        switch(etat){
+            case Normal:{
+                secondCliked = false;
+                etat = Etat.Normal;
+                executeDeclencheAPPR(); 
+                break;
+            }
+            case Vibration:{
+                etat = Etat.Vibration;
+                if(secondCliked){
+                    executeDeclencheAPPR(); 
+                    secondCliked = false;
+                }else{
+                    DeclencherAction.declencherAction2(boutonAPPR, 100, 70);
+                    secondCliked = true;
+                }
+                break;
+            }   
+            case Lumiere:{//completer
+                break;
+            }
+            case VibLum:{//completer
+                break;
+            }
+        }
+           
     }
 
     @FXML
     private void handleEntrerGoAroundPage(ActionEvent event) {
-        if(vibration.isSelected()){
-            if(secondCliked){
-              executeDeclencheGA();
-              secondCliked = false;
-            }else{
-               DeclencherAction.declencherAction2(boutonGA, 100, 70);
-               secondCliked = true;
+        switch(etat){
+            case Normal:{
+                secondCliked = false;
+                etat = Etat.Normal;
+                executeDeclencheGA();
+                break;
+            }                    
+            case Vibration:{
+                etat = Etat.Vibration;
+                if(secondCliked){
+                    executeDeclencheGA();
+                    secondCliked = false;
+                }else{
+                    DeclencherAction.declencherAction2(boutonGA, 100, 70);
+                    secondCliked = true;
+                }
+                break;
             }
-        }else{
-            executeDeclencheGA();
+            case Lumiere:{ //completer
+                break;
+            }
+            case VibLum:{ //completer
+                break;
+            }
         }
+        
+
     }
     /**
      * Armer le contexte nomale
@@ -98,9 +159,10 @@ public class MenuController implements Initializable {
      */
     @FXML
     private void activeNormal(ActionEvent event){
+        etat = Etat.Normal;
         normal.setSelected(true);
         vibration.setSelected(false);
-        limunisite.setSelected(false);
+        luminosite.setSelected(false);
         DeclencherAction.declencherAction2(boutonGA, 61.0, 23.0);
         DeclencherAction.declencherAction2(boutonAPPR, 61.0, 23.0);
     }
@@ -109,9 +171,18 @@ public class MenuController implements Initializable {
      */
     @FXML
     private void activeVibration(ActionEvent event){
-        normal.setSelected(false);
-        vibration.setSelected(true);
-        limunisite.setSelected(false);
+        if(luminosite.isSelected()){
+            etat = Etat.VibLum;
+            normal.setSelected(false);
+            vibration.setSelected(true);
+            luminosite.setSelected(true);  
+        }else{
+            etat = Etat.Vibration;
+            normal.setSelected(false);
+            vibration.setSelected(true);
+            luminosite.setSelected(false);
+        }
+        
         
     }
     /**
@@ -119,9 +190,18 @@ public class MenuController implements Initializable {
      */
     @FXML
     private void activeLimuniere(ActionEvent event){
-        normal.setSelected(false); 
-        vibration.setSelected(false);
-        limunisite.setSelected(true);
+        if(vibration.isSelected()){
+            etat = Etat.VibLum;
+            normal.setSelected(false); 
+            vibration.setSelected(true);
+            luminosite.setSelected(true);
+        }else{
+            etat = Etat.Lumiere;
+            normal.setSelected(false); 
+            vibration.setSelected(false);
+            luminosite.setSelected(true);
+        }
+       
     }
     /**
      * active dans le deux contexte
