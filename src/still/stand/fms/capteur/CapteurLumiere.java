@@ -14,7 +14,7 @@ public class CapteurLumiere {
     public CapteurLumiere(){
          //Get your platform
       
-  SensorInfo foundSensors[] = null;
+//  SensorInfo foundSensors[] = null;
     }
     
 }

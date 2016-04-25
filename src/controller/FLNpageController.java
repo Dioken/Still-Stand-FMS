@@ -30,10 +30,13 @@ public class FLNpageController {
             FXMLLoader loaderCenter = new FXMLLoader();
             loaderCenter.setLocation(StillStandFMS.class.getResource("/view/Liste.fxml"));
             AnchorPane FXMLViewCenter = (AnchorPane) loaderCenter.load();
-            rootBorder.setCenter(FXMLViewCenter);
+           
+             rootBorder.setCenter(FXMLViewCenter);
         } catch (IOException ex) {
             Logger.getLogger(MenuOverviewController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    
     
 }
