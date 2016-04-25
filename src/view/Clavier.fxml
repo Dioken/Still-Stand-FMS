@@ -4,14 +4,13 @@
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import java.util.ArrayList?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
 <AnchorPane id="AnchorPane" prefHeight="200.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ClavierController">
    <children>
-      <SplitPane dividerPositions="0.362876254180602" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <SplitPane dividerPositions="0.362876254180602" onMouseClicked="#handleButtonAction" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <items>
             <SplitPane dividerPositions="0.6557788944723618" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
               <items>
@@ -108,49 +107,49 @@
                   
                   <fx:define>
                     <ArrayList fx:id="buttonsAlpha">
-                        <fx:reference source="n1"/>
-                        <fx:reference source="n2"/>
-                        <fx:reference source="n3"/>
-                        <fx:reference source="n4"/>
-                        <fx:reference source="n5"/>
-                        <fx:reference source="n6"/>
-                        <fx:reference source="n7"/>
-                        <fx:reference source="n8"/>
-                        <fx:reference source="n9"/>
-                        <fx:reference source="point"/>
-                        <fx:reference source="plusMoin"/>
+                        <fx:reference source="n1" />
+                        <fx:reference source="n2" />
+                        <fx:reference source="n3" />
+                        <fx:reference source="n4" />
+                        <fx:reference source="n5" />
+                        <fx:reference source="n6" />
+                        <fx:reference source="n7" />
+                        <fx:reference source="n8" />
+                        <fx:reference source="n9" />
+                        <fx:reference source="point" />
+                        <fx:reference source="plusMoin" />
                     </ArrayList>
                     
                     <ArrayList fx:id="buttonsNumerique">
-                        <fx:reference source="a"/>
-                        <fx:reference source="b"/>
-                        <fx:reference source="c"/>
-                        <fx:reference source="d"/>
-                        <fx:reference source="e"/>
-                        <fx:reference source="f"/>
-                        <fx:reference source="g"/>
-                        <fx:reference source="h"/>
-                        <fx:reference source="i"/>
-                        <fx:reference source="j"/>
-                        <fx:reference source="k"/>
-                        <fx:reference source="l"/>
-                        <fx:reference source="m"/>
-                        <fx:reference source="n"/>
-                        <fx:reference source="o"/>
-                        <fx:reference source="p"/>
-                        <fx:reference source="q"/>
-                        <fx:reference source="r"/>
-                        <fx:reference source="s"/>
-                        <fx:reference source="t"/>
-                        <fx:reference source="u"/>
-                        <fx:reference source="v"/>
-                        <fx:reference source="w"/>
-                        <fx:reference source="y"/>
-                        <fx:reference source="z"/>
-                        <fx:reference source="slash"/>
-                        <fx:reference source="sp"/>
-                        <fx:reference source="del"/>
-                        <fx:reference source="clr"/>
+                        <fx:reference source="a" />
+                        <fx:reference source="b" />
+                        <fx:reference source="c" />
+                        <fx:reference source="d" />
+                        <fx:reference source="e" />
+                        <fx:reference source="f" />
+                        <fx:reference source="g" />
+                        <fx:reference source="h" />
+                        <fx:reference source="i" />
+                        <fx:reference source="j" />
+                        <fx:reference source="k" />
+                        <fx:reference source="l" />
+                        <fx:reference source="m" />
+                        <fx:reference source="n" />
+                        <fx:reference source="o" />
+                        <fx:reference source="p" />
+                        <fx:reference source="q" />
+                        <fx:reference source="r" />
+                        <fx:reference source="s" />
+                        <fx:reference source="t" />
+                        <fx:reference source="u" />
+                        <fx:reference source="v" />
+                        <fx:reference source="w" />
+                        <fx:reference source="y" />
+                        <fx:reference source="z" />
+                        <fx:reference source="slash" />
+                        <fx:reference source="sp" />
+                        <fx:reference source="del" />
+                        <fx:reference source="clr" />
                     </ArrayList>
                 </fx:define> 
                </children>

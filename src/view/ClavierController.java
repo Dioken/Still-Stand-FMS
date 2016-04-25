@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -40,26 +41,29 @@ public class ClavierController implements Initializable {
         System.out.println( rb.getObject("a"));
     }    
     
-    public java.awt.Button[][] adpaterKeyboard(java.awt.Button buttonRepere, List<java.awt.Button> listButton){
+    @FXML
+    public void handleButtonAction(ActionEvent event) {
+     // Button was clicked, do something...
+ 
+     }
+    public List<java.awt.Button> adpaterKeyboard(java.awt.Button buttonRepere, List<java.awt.Button> listButton){
         
        int indexButtonRepere = 0;
-       
-       indexButtonRepere = listButton.indexOf(buttonRepere);
       
-       java.awt.Button[][] buttonProche = new java.awt.Button[3][3];
-       
-       int pX = transFormX(indexButtonRepere, 6);
-       int pY = transFormY(indexButtonRepere, 6);
-       
+       indexButtonRepere = listButton.indexOf(buttonRepere);
+       List<java.awt.Button> listButtonProche = new ArrayList<>();
+       int pX = transFormX(indexButtonRepere, 5);
+       int pY = transFormY(indexButtonRepere, 5);
+    
        for(int i =-1 ;i <= 1 ; i++){
            for(int j = -1 ;j <= 1 ; j++){
-               if(effetBord(i+pX, j+pY)){
-                   buttonProche[i][j] = listButton.get(trans2Dto1D(i+pX,j+pY));
-               }
-           }
+                 if(effetBord(i+pX, j+pY)){
+                   listButtonProche.add( listButton.get(trans2Dto1D(i+pX,j+pY)));
+                 }
+            }
        }
          
-       return buttonProche;   
+       return listButtonProche;   
     }
     
     private int transFormX(int index, int sizeTab){
@@ -75,7 +79,7 @@ public class ClavierController implements Initializable {
     }
     
     private boolean effetBord(int x,int y){
-	 return ((x>=0 && x<5) && (y>=0 && y<6));
+	 return ((x>=0 && x<4) && (y>=0 && y<5));
     }	
 
 }
