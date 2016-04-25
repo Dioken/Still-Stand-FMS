@@ -5,7 +5,10 @@
  */
 package main;
 
-import controller.MenuOverviewController;
+import controller.EtatController.Etat;
+import controller.MenuController;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.io.IOException;
 import java.net.URL;
 import java.util.logging.Level;
@@ -19,24 +22,32 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javax.swing.UIDefaults;
+import javax.swing.UIManager;
 
 /**
  *
- * @author Bah
+ * @author bah
  */
 public class StillStandFMS extends Application {
     
     private Stage primaryStage;    
     private BorderPane rootBorder;
     private FXMLLoader loaderCenter;
-    
+    Etat etat;
     @Override
     public void start(Stage primaryStage) {
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         this.primaryStage = primaryStage;
+        this.primaryStage.setHeight(screenSize.getHeight());
+        this.primaryStage.setWidth(screenSize.getWidth());
         this.primaryStage.setTitle("MCDU"); 
+
         initRootLayout();
         showMenuView();   
         chargerMenuController(); 
+        
+        
     }
     
     /**
@@ -44,6 +55,7 @@ public class StillStandFMS extends Application {
      */
     private void initRootLayout(){
         try {
+            etat = Etat.Normal;
             // Load root layout from fxml file.
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(StillStandFMS.class.getResource("/view/Root.fxml"));
@@ -52,6 +64,7 @@ public class StillStandFMS extends Application {
             Scene scene = new Scene(rootBorder);
             primaryStage.setScene(scene);
             primaryStage.show();
+            //scene.getStylesheets().add("/view/modena.css");
         } catch (IOException ex) {
           ex.printStackTrace();
         }
@@ -63,7 +76,7 @@ public class StillStandFMS extends Application {
             loaderCenter.setLocation(StillStandFMS.class.getResource("/view/Menu.fxml"));
             AnchorPane personOverview = (AnchorPane) loaderCenter.load();
              // Set person overview into the center of root layout.
-            rootBorder.setCenter(personOverview);
+            rootBorder.setCenter(personOverview);            
         } catch (IOException ex) {
           //System.err.println("Erreur au chargement: " + ex.getMessage()+ex.getCause());
           ex.printStackTrace();
@@ -79,7 +92,7 @@ public class StillStandFMS extends Application {
     }
 
     private void chargerMenuController(){       
-        MenuOverviewController menuController = loaderCenter.getController();
+        MenuController menuController = loaderCenter.getController();
         menuController.setStillStandFMS(rootBorder);
 
     }

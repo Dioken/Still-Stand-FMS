@@ -10,6 +10,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.SplitPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import main.StillStandFMS;
@@ -20,7 +21,10 @@ import main.StillStandFMS;
  */
 public class APPRController {
     private BorderPane rootBorder;
+    private SplitPane rootSplit;
     FXMLLoader loaderCenter = null;
+    FXMLLoader loaderSplit = null;
+    FXMLLoader loaderClavier = null;
     
     public void setAPPRController(BorderPane rootBorder){
         this.rootBorder = rootBorder;
@@ -30,18 +34,33 @@ public class APPRController {
     public void handleEntererFLNPage() {
         try {                    
             loaderCenter = new FXMLLoader();
-            loaderCenter.setLocation(StillStandFMS.class.getResource("../view/FLNpage.fxml"));
-            AnchorPane FXMLViewCenter = (AnchorPane) loaderCenter.load();
-            rootBorder.setCenter(FXMLViewCenter);
+            loaderCenter.setLocation(StillStandFMS.class.getResource("../view/FLNpageSplit.fxml"));
+            rootSplit = (SplitPane) loaderCenter.load();
+            rootBorder.setCenter(rootSplit);
+            
+            /*
+            Charger la page FLN sur le split  en haut.
+            */
+            loaderSplit = new FXMLLoader();
+            loaderSplit.setLocation(StillStandFMS.class.getResource("../view/FLNpage.fxml"));            
+            AnchorPane FXMLViewSplit = (AnchorPane) loaderSplit.load();
+            rootSplit.getItems().set(0, FXMLViewSplit);
+         
+            /* Ajouter l'ensemble des chemins */
+            FXMLLoader loaderSplit2 = new FXMLLoader();
+            loaderSplit2.setLocation(StillStandFMS.class.getResource("../view/FLNpageList.fxml"));            
+            AnchorPane FXMLViewList = (AnchorPane) loaderSplit2.load();
+            rootSplit.getItems().set(1, FXMLViewList);
+            
         } catch (IOException ex) {
-            Logger.getLogger(MenuOverviewController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         chargerFLNController();
     }
     
     public void chargerFLNController(){
-        FLNpageController flnController = loaderCenter.getController();
-        flnController.setFLNpageController(rootBorder);  
+        FLNpageController flnController = loaderSplit.getController();
+        flnController.setFLNpageController(rootBorder,rootSplit);  
     }
 }
