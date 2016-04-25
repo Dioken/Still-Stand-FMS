@@ -89,4 +89,9 @@ public class MenuOverviewController {
         APPRController apprController = loaderCenter.getController();
         apprController.setAPPRController(rootBorder);
     }
+    
+    public void changerCss(){
+        rootBorder.getStylesheets().add("/view/modena.css");
+        
+    }
 }

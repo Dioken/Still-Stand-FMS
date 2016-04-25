@@ -7,4 +7,4 @@
 <?import javafx.scene.layout.*?>
 
 
-<BorderPane focusTraversable="true" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" />
+<BorderPane focusTraversable="true" stylesheets="@modena.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" />
