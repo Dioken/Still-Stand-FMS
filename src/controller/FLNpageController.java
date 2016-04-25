@@ -6,7 +6,7 @@
 package controller;
 
 import been.ListChemin;
-import java.awt.Button;
+import javafx.scene.control.Button;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -36,8 +36,10 @@ public class FLNpageController {
     private TextField dist;
     @FXML
     private TextField radio;
-    
-    
+    @FXML
+    private Button bModifier;
+    @FXML
+    private Button bValider;
     
     public void setFLNpageController(BorderPane rootBorder,SplitPane rootSplit){
         this.rootBorder = rootBorder;
@@ -107,13 +109,39 @@ public class FLNpageController {
     }     
     
     @FXML
-    public void apuyerBtValide(){        
+    public void apuyerBtValide(){  
+        this.bModifier.setDisable(false);
+        this.bValider.setDisable(true);
+        this.dest.setEditable(false);
+        this.dist.setEditable(false);
+        this.radio.setEditable(false);
+        
         try {
-            FXMLLoader loaderClavier = new FXMLLoader();
-            loaderClavier.setLocation(StillStandFMS.class.getResource("../view/FLNpageList.fxml"));
-            AnchorPane FXMLViewClavier = (AnchorPane) loaderClavier.load();
+            FXMLLoader  loaderChemins = new FXMLLoader();
+            
+            loaderChemins.setLocation(StillStandFMS.class.getResource("../view/FLNpageList.fxml"));
+            AnchorPane FXMLViewClavier = (AnchorPane) loaderChemins.load();
             rootSplit.getItems().set(1, FXMLViewClavier);
-        } catch (IOException ex) {
+        
+        
+        //charger listCheminController
+            FLNpageListController controller = loaderChemins.getController();
+            /*
+            ListChemin: 4 attributs
+            from: depart
+            dest: arrive
+            dist: distance
+            radio: lu numero de radio
+            */
+            controller.setList("Gbessia International Airport (GUINEA)",
+                    "Léopold-Sédar-Senghor Airport (SENEGAL)","1200","1505");
+            controller.setList("Léopold-Sédar-Senghor Airport (SENEGAL)",
+                    "Mohammed V - Casablanca Airport (MAROC)", "1200","1505");
+            controller.setList("Mohammed V - Casablanca Airport (MAROC)",
+                    this.dest.getText(),"1200","1505");
+            // afficher des donnee sur la TableView
+            controller.afficherList();
+            } catch (IOException ex) {
             Logger.getLogger(FLNpageController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
@@ -123,11 +151,21 @@ public class FLNpageController {
     @FXML
     public void chercherChenim(){
         if(this.numch.getText().equals("L001")){
-            this.from.setText("Gbessia International Airport");
-            this.dest.setText("Paris Charles-de-Gaulle Airport");
+            this.from.setText("Gbessia International Airport (GUINEA)");
+            this.dest.setText("Paris Charles-de-Gaulle Airport (FRANCE)");
             this.dist.setText("9100 KM");
             this.radio.setText("1505");
         }
         
     }
+    
+    @FXML
+    public void activerModification(){
+        this.bModifier.setDisable(true);
+        this.bValider.setDisable(false);
+        this.dest.setEditable(true);
+        this.dist.setEditable(true);
+        this.radio.setEditable(true);
+    }
+    
 }

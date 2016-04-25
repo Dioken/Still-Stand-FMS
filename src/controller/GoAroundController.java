@@ -58,8 +58,11 @@ public class GoAroundController {
             Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        FLNpageController flnController = loaderSplit.getController();
-        flnController.setFLNpageController(rootBorder,rootSplit);
+        chargerFLNController();
     }
     
+    public void chargerFLNController(){
+        FLNpageController flnController = loaderSplit.getController();
+        flnController.setFLNpageController(rootBorder,rootSplit);  
+    }
 }
