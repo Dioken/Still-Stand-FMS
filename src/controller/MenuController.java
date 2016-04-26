@@ -114,9 +114,11 @@ public class MenuController implements Initializable {
                 break;
             }   
             case Lumiere:{//completer
+                secondCliked = false;
                 break;
             }
             case VibLum:{//completer
+                secondCliked = false;
                 break;
             }
         }
@@ -144,9 +146,11 @@ public class MenuController implements Initializable {
                 break;
             }
             case Lumiere:{ //completer
+                
                 break;
             }
             case VibLum:{ //completer
+                
                 break;
             }
         }
@@ -159,10 +163,36 @@ public class MenuController implements Initializable {
      */
     @FXML
     private void activeNormal(ActionEvent event){
-        etat = Etat.Normal;
-        normal.setSelected(true);
-        vibration.setSelected(false);
-        luminosite.setSelected(false);
+        switch(etat){
+            case Normal:{
+                etat = Etat.Normal;
+                normal.setSelected(true);
+                vibration.setSelected(false);
+                luminosite.setSelected(false);
+                break;
+            }
+            case Vibration:{
+                etat = Etat.Normal;
+                normal.setSelected(true);
+                vibration.setSelected(false);
+                luminosite.setSelected(false);
+                break;
+            }
+            case Lumiere:{
+                etat = Etat.Normal;
+                normal.setSelected(true);
+                vibration.setSelected(false);
+                luminosite.setSelected(false);
+                break;
+            }
+            case VibLum:{
+                etat = Etat.Normal;
+                normal.setSelected(true);
+                vibration.setSelected(false);
+                luminosite.setSelected(false);
+                break;
+            }
+        }
         DeclencherAction.declencherAction2(boutonGA, 61.0, 23.0);
         DeclencherAction.declencherAction2(boutonAPPR, 61.0, 23.0);
     }
@@ -171,47 +201,72 @@ public class MenuController implements Initializable {
      */
     @FXML
     private void activeVibration(ActionEvent event){
-        if(luminosite.isSelected()){
-            etat = Etat.VibLum;
-            normal.setSelected(false);
-            vibration.setSelected(true);
-            luminosite.setSelected(true);  
-        }else{
-            etat = Etat.Vibration;
-            normal.setSelected(false);
-            vibration.setSelected(true);
-            luminosite.setSelected(false);
+        switch(etat){
+            case Normal: 
+                etat = Etat.Vibration;
+                normal.setSelected(false);
+                vibration.setSelected(true);
+                luminosite.setSelected(false);
+                break;
+            case Vibration:
+                etat = Etat.Vibration;
+                normal.setSelected(false);
+                vibration.setSelected(true);
+                luminosite.setSelected(false);
+                break;
+            case Lumiere:{
+                etat = Etat.VibLum;
+                normal.setSelected(false);
+                vibration.setSelected(true);
+                luminosite.setSelected(true);
+                break;
+            }
+            case VibLum:{
+                etat = Etat.Lumiere;
+                normal.setSelected(false);
+                vibration.setSelected(false);
+                luminosite.setSelected(true);
+                break;
+            }
         }
-        
-        
+                
     }
     /**
      * Aemer le contexte de la limuere
      */
     @FXML
     private void activeLimuniere(ActionEvent event){
-        if(vibration.isSelected()){
-            etat = Etat.VibLum;
-            normal.setSelected(false); 
-            vibration.setSelected(true);
-            luminosite.setSelected(true);
-        }else{
-            etat = Etat.Lumiere;
-            normal.setSelected(false); 
-            vibration.setSelected(false);
-            luminosite.setSelected(true);
-        }
-       
+        switch(etat){
+            case Normal: 
+                etat = Etat.Lumiere;
+                normal.setSelected(false);
+                vibration.setSelected(false);
+                luminosite.setSelected(true);
+                break;
+            case Vibration:{
+                etat = Etat.VibLum;
+                normal.setSelected(false);
+                vibration.setSelected(true);
+                luminosite.setSelected(true);
+                break;
+            }               
+            case Lumiere:{
+                etat = Etat.Lumiere;
+                normal.setSelected(false);
+                vibration.setSelected(false);
+                luminosite.setSelected(true);
+                break;
+            }
+            case VibLum:{
+                etat = Etat.Vibration;
+                normal.setSelected(false);
+                vibration.setSelected(true);
+                luminosite.setSelected(false);
+                break;
+            }
+        }       
     }
-    /**
-     * active dans le deux contexte
-     * 
-     */
-    private void activeDesactiveContexte(CheckBox plimuniere, CheckBox pvibration){
-        if((plimuniere.isSelected())&&pvibration.isSelected()){
-           pvibration.setSelected(true);
-        }
-    }
+    
     public void chargerFXML(){
         try {
             loaderLeft = new FXMLLoader();
@@ -237,6 +292,12 @@ public class MenuController implements Initializable {
         APPRController apprController = loaderCenter.getController();
         apprController.setAPPRController(rootBorder);
     }
+    
+     public void changerCss(){
+     //   rootBorder.getStylesheets().add("/view/modena.css");
+        
+    }
+    
     /**
      * declenche l'action du bouton GA
      */

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.text.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.APPRController">
+<AnchorPane id="AnchorPane" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.APPRController">
    <children>
       <GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columnConstraints>
@@ -77,7 +77,7 @@
              <Label text="137" textFill="#11cdee" GridPane.columnIndex="1" GridPane.rowIndex="19" />
              <Label text="VLS" GridPane.columnIndex="2" GridPane.rowIndex="18" />
              <Label text="132" textFill="#09b52c" GridPane.columnIndex="2" GridPane.rowIndex="19" />
-             <Button mnemonicParsing="false" onAction="#handleEntererFLNPage" prefHeight="23.0" prefWidth="90.0" text="FLN PAGE" GridPane.columnIndex="1" GridPane.rowIndex="21" />
+             <Button fx:id="boutonFLNPAGE" mnemonicParsing="false" onAction="#handleEntererFLNPage" prefHeight="23.0" prefWidth="90.0" text="FLN PAGE" GridPane.columnIndex="1" GridPane.rowIndex="21" />
          </children>
       </GridPane>
    </children>
