@@ -14,6 +14,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.SplitPane;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import main.StillStandFMS;
@@ -140,7 +141,7 @@ public class FLNpageController {
             controller.setList("Léopold-Sédar-Senghor Airport (SENEGAL)",
                     "Mohammed V - Casablanca Airport (MAROC)", "1200","1505");
             controller.setList("Mohammed V - Casablanca Airport (MAROC)",
-                    this.dest.getText(),"1200","1505");
+                    this.dest.getText(),"1200",this.radio.getText());
             // afficher des donnee sur la TableView
             controller.afficherList();
             } catch (IOException ex) {
@@ -171,5 +172,21 @@ public class FLNpageController {
     }
     
     
-    
+    /**
+     * Cette fonctions permet de faire la saisit dans le champs lorsqu'on click sur un boutton
+     * @param event 
+     * @return  String: la lettre appuyer
+     */
+    @FXML 
+    public void handlerRemplirChamp(MouseEvent event){
+        
+        Button boutton = (Button) event.getSource();
+        System.out.println("handlerRemplirChamp "+event.getSource()+" || "+boutton.getText());
+        
+       // if(this.dest.isFocused()){
+       /*if(dest==null)
+            System.out.println("null");*/
+            //this.dest.setText(this.);
+        //}
+    }
 }
