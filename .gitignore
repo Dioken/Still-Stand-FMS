@@ -9,6 +9,7 @@ nb-configuration.xml
 .nb-gradle/
 core
 
+nbproject
 nbproject/project.properties
 project.properties
 

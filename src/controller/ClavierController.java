@@ -45,21 +45,21 @@ public class ClavierController implements Initializable {
     public void handleButtonActionAlphaKeyBoard(ActionEvent event) {
      // Button was clicked, do something...
        // System.out.println("view.ClavierController.handleButtonAction() "+event.getSource());
-        List<Button> listButtonProche =adpaterAlphaKeyboard((Button) event.getSource());
+        /*List<Button> listButtonProche =adpaterAlphaKeyboard((Button) event.getSource());
         int nbNode = gridPaneAlpha.getChildren().size();
         for(int i = 0; i < nbNode; i++){
             gridPaneAlpha.getChildren().get(i).setVisible(false);
         }
         //System.out.println(listButtonProche.get(0));
-        gridPaneAlpha.add(listButtonProche.get(0), 0, 0);
+        gridPaneAlpha.add(listButtonProche.get(0), 0, 0);*/
      }
     
     @FXML
     public void handleButtonActionNumeriqueKeyBoard(ActionEvent event) {
      // Button was clicked, do something...
-        System.out.println("view.ClavierController.handleButtonAction()");
+        /*System.out.println("view.ClavierController.handleButtonAction()");
         System.err.println(event.getSource().toString());
-        List<Button> listButtonProche = adpaterNumeriqueKeyboard((Button) event.getSource());
+        List<Button> listButtonProche = adpaterNumeriqueKeyboard((Button) event.getSource());*/
      }
     
     public List<Button> adpaterAlphaKeyboard(Button buttonRepere){
@@ -117,5 +117,9 @@ public class ClavierController implements Initializable {
     private boolean effetBord(int x,int y){
 	 return ((x>=0 && x<4) && (y>=0 && y<5));
     }	
+
+    public java.awt.Button[][] adpaterKeyboard(java.awt.Button b1, List<java.awt.Button> buttonList) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
 }

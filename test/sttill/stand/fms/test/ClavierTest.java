@@ -8,7 +8,7 @@ import java.awt.Button;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.*;
-import view.ClavierController;
+import controller.ClavierController;
 /**
  *
  * @author mars
