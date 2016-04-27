@@ -5,6 +5,7 @@
  */
 package controller;
 
+import static controller.FLNpageController.cursorPosition;
 import static controller.FLNpageController.focus;
 import java.net.URL;
 import java.util.ArrayList;
@@ -52,7 +53,11 @@ public class ClavierController implements Initializable {
     @FXML
     public void handleButtonActionAlphaKeyBoard(ActionEvent event) {
         System.out.println(focus.getText());
-        focus.setText(focus.getText()+((Button)event.getSource()).getText());
+        
+        String textAvant=focus.getText().substring(0,cursorPosition);
+        String textApres=focus.getText().substring(cursorPosition,focus.getLength());
+        cursorPosition++;
+        focus.setText(textAvant+((Button)event.getSource()).getText()+textApres);
 
         // Button was clicked, do something...
       
@@ -74,7 +79,11 @@ public class ClavierController implements Initializable {
     @FXML
     public void handleButtonActionNumeriqueKeyBoard(ActionEvent event) {
         System.out.println(focus.getText());
-        focus.setText(focus.getText()+((Button)event.getSource()).getText());
+        
+        String textAvant=focus.getText().substring(0,cursorPosition);
+        String textApres=focus.getText().substring(cursorPosition,focus.getLength());
+        cursorPosition++;
+        focus.setText(textAvant+((Button)event.getSource()).getText()+textApres);
        
         List<Button> listButtonProche = adpaterNumeriqueKeyboard((Button) event.getSource());       
         
