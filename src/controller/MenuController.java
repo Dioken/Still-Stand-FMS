@@ -152,7 +152,7 @@ public class MenuController implements Initializable {
                 
                 break;
             }
-            case VibLum:{ //completer
+            case VibLum:{ // completer
                 
                 break;
             }
