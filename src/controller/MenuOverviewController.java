@@ -77,7 +77,7 @@ public class MenuOverviewController {
     
     public void chargerFXMLController(){
         FXMLController fxmlController=loaderLeft.getController();
-        fxmlController.setFXMLController(rootBorder);
+        //fxmlController.setFXMLController(rootBorder);
     }
     
     public void chargerGoAroundController(){
@@ -91,7 +91,7 @@ public class MenuOverviewController {
     }
     
     public void changerCss(){
-        rootBorder.getStylesheets().add("/view/modena.css");
+       // rootBorder.getStylesheets().add("/view/modena.css");
         
     }
 }

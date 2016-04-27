@@ -41,7 +41,7 @@ public class FLNpageController {
             rootBorder.setCenter(FXMLViewCenter);
             
             //charger listCheminController
-            ListCheminController controller = loaderCenter.getController();
+            ListCheminController controller = loaderCenter.getController();            
             /*
             ListChemin: 4 attributs
             from: depart
@@ -79,22 +79,24 @@ public class FLNpageController {
             Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    /*
+            charger la page clavier sur le split en bas
+            */
     @FXML
     public void handleAfficherLeCheminEnCourant(){
         try {
-            /*
-            charger la page clavier sur le split en bas
-            */
+            
             FXMLLoader loaderClavier = new FXMLLoader();
             loaderClavier.setLocation(StillStandFMS.class.getResource("../view/Clavier.fxml"));                            
-            AnchorPane FXMLViewClavier;
-            FXMLViewClavier = (AnchorPane) loaderClavier.load();
+            AnchorPane FXMLViewClavier = (AnchorPane) loaderClavier.load();
             rootSplit.getItems().set(1, FXMLViewClavier);
         } catch (IOException ex) {
             Logger.getLogger(FLNpageController.class.getName()).log(Level.SEVERE, null, ex);
         }            
     }     
-    
+    /*
+            charger la page listEncourant sur le split en bas
+            */
     @FXML
     public void apuyerBtValide(){        
         try {

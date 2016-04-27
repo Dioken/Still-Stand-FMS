@@ -46,8 +46,11 @@ public class MenuController implements Initializable {
     private BorderPane rootBorder;
     private FXMLLoader loaderCenter;
     private FXMLLoader loaderLeft;
-    public void setStillStandFMS(BorderPane rootBorder){
-        this.rootBorder = rootBorder;
+    StillStandFMS fms;
+    
+    public void setStillStandFMS(BorderPane rootBorder,StillStandFMS fms){
+        this.rootBorder = rootBorder;        
+        this.fms = fms;
     }
     /**
      * Initializes the controller class.
@@ -165,6 +168,8 @@ public class MenuController implements Initializable {
         luminosite.setSelected(false);
         DeclencherAction.declencherAction2(boutonGA, 61.0, 23.0);
         DeclencherAction.declencherAction2(boutonAPPR, 61.0, 23.0);
+        //change les couleurs de bouton
+        this.fms.setStyleCss(1);
     }
     /**
      * Armer le contexte vibration
@@ -201,7 +206,7 @@ public class MenuController implements Initializable {
             vibration.setSelected(false);
             luminosite.setSelected(true);
         }
-       
+       this.fms.setStyleCss(2);
     }
     /**
      * active dans le deux contexte
@@ -225,7 +230,7 @@ public class MenuController implements Initializable {
     
     public void chargerFXMLController(){
         FXMLController fxmlController=loaderLeft.getController();
-        fxmlController.setFXMLController(rootBorder);
+        fxmlController.setFXMLController(rootBorder,fms);
     }
     
     public void chargerGoAroundController(){
