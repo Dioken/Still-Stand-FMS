@@ -48,6 +48,7 @@ public class FLNpageController {
         this.rootBorder = rootBorder;
         this.rootSplit = rootSplit;
     }
+    
     @FXML
     public void handleEntererListe(){
         try {                    
@@ -72,26 +73,6 @@ public class FLNpageController {
             // afficher des donnee sur la TableView
             controller.afficherList();
 
-            
-            //A mettre dans un autre controlleur ce qui est en commentaire
-            /* 
-            FXMLLoader loaderCenter = new FXMLLoader();
-            loaderCenter.setLocation(StillStandFMS.class.getResource("/view/Clavier.fxml"));
-            AnchorPane FXMLViewCenter = (AnchorPane) loaderCenter.load();
-            SplitPane splitPane = (SplitPane) FXMLViewCenter.getChildren().get(0);
-            
-            FXMLLoader loaderDown = new FXMLLoader();
-            loaderDown.setLocation(StillStandFMS.class.getResource("/view/Clavier.fxml"));
-            AnchorPane clavier = (AnchorPane) loaderDown.load();
-                    
-            
-            splitPane.getItems().set(1, clavier);
-            rootBorder.setCenter(FXMLViewCenter);*/
-            
-            //FXMLLoader loaderDown = new FXMLLoader();
-            //loaderDown.setLocation(StillStandFMS.class.getResource("/view/Clavier.fxml"));
-            //rootBorder.getChildren().get(0).setClip(FXMLLoader);
-            //FXMLViewCenter.getChildren().add(loaderDown);
         } catch (IOException ex) {
             Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -187,6 +168,7 @@ public class FLNpageController {
         Button boutton = (Button) event.getSource();
         System.out.println("handlerRemplirChamp "+event.getSource()+" || "+boutton.getText());
         focus.setText(focus.getText()+boutton.getText());
+        
        // if(this.dest.isFocused()){
        /*if(dest==null)
             System.out.println("null");*/
@@ -197,7 +179,7 @@ public class FLNpageController {
     public void handlerClickChamp(MouseEvent event){
         
         TextField text = (TextField) event.getSource();
-        focus = null;
+        focus=null;
         focus = text;
         
         System.out.println("handlerClick "+text);
