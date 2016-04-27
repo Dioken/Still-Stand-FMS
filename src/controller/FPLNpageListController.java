@@ -48,12 +48,10 @@ public class FPLNpageListController {
 
     
     public void afficherList() {
-        System.out.println(listTable.getItems().size());
         listTable.setItems(getListChemins());
     }
 
     public void setList(String from, String dest, String dist, String radio) {
-        System.out.println(listTable.getItems().size());
         listCheminsData.add(new ListChemin(from, dest, dist, radio));
     }
 }

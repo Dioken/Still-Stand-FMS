@@ -59,14 +59,12 @@ public class ClavierController implements Initializable {
         
         switch (MenuController.etat) {
             case Normal: {
-                System.out.println("Normal");
                 focusFonction(event);
                 //focus.setText(focus.getText() + ((Button) event.getSource()).getText());
                 break;
             }
             case Vibration: {
                 if (firstAlpha) {
-                     System.out.println("FirstVibration");
                     adapteClavier(gridPaneAlpha, listButtonProche);
                     firstAlpha = false;
                 } else {
