@@ -74,7 +74,7 @@ public class GoAroundController {
     private void declencehrFLNPage() {
         try {
             loaderCenter = new FXMLLoader();
-            loaderCenter.setLocation(StillStandFMS.class.getResource("../view/FLNpageSplit.fxml"));
+            loaderCenter.setLocation(StillStandFMS.class.getResource("/view/FPLNpageSplit.fxml"));
             rootSplit = (SplitPane) loaderCenter.load();
             rootBorder.setCenter(rootSplit);
 
@@ -82,13 +82,13 @@ public class GoAroundController {
             Charger la page FLN sur le split  en haut.
              */
             loaderSplit = new FXMLLoader();
-            loaderSplit.setLocation(StillStandFMS.class.getResource("../view/FLNpage.fxml"));
+            loaderSplit.setLocation(StillStandFMS.class.getResource("/view/FPLNpage.fxml"));
             AnchorPane FXMLViewSplit = (AnchorPane) loaderSplit.load();
             rootSplit.getItems().set(0, FXMLViewSplit);
 
             /* Ajouter l'ensemble des chemins de vol (way points)*/
             FXMLLoader loaderSplit2 = new FXMLLoader();
-            loaderSplit2.setLocation(StillStandFMS.class.getResource("../view/FLNpageList.fxml"));
+            loaderSplit2.setLocation(StillStandFMS.class.getResource("/view/FPLNpageList.fxml"));
             AnchorPane FXMLViewList = (AnchorPane) loaderSplit2.load();
             rootSplit.getItems().set(1, FXMLViewList);
 

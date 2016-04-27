@@ -31,7 +31,7 @@ public class MenuController implements Initializable {
 
     @FXML
     private Button boutonCRZ;    
-
+    
     @FXML
     private Button boutonGA;
     @FXML
