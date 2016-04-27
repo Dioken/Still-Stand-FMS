@@ -13,5 +13,8 @@ public enum Etat {
         Normal,
         Vibration,
         Lumiere,
-        VibLum
+        VibLum,
+        VibAction,
+        LumAction,
+        VibLumAction
 }

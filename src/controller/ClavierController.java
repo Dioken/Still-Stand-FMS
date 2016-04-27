@@ -5,7 +5,8 @@
  */
 package controller;
 
-import static controller.FLNpageController.focus;
+import static controller.FPLNpageController.cursorPosition;
+import static controller.FPLNpageController.focus;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -54,33 +55,39 @@ public class ClavierController implements Initializable {
     @FXML
     public void handleButtonActionAlphaKeyBoard(ActionEvent event) {
 
-        // Button was clicked, do something...
-        
         List<Button> listButtonProche = adpaterAlphaKeyboard((Button) event.getSource());
+        
         switch (MenuController.etat) {
             case Normal: {
-                focus.setText(focus.getText() + ((Button) event.getSource()).getText());
+                System.out.println("Normal");
+                focusFonction(event);
+                //focus.setText(focus.getText() + ((Button) event.getSource()).getText());
                 break;
             }
             case Vibration: {
                 if (firstAlpha) {
-                    adapteClavier(gridPaneAlpha,listButtonProche);
+                     System.out.println("FirstVibration");
+                    adapteClavier(gridPaneAlpha, listButtonProche);
                     firstAlpha = false;
                 } else {
-                    focus.setText(focus.getText() + ((Button) event.getSource()).getText());
+                    focusFonction(event);
+                    //focus.setText(focus.getText() + ((Button) event.getSource()).getText());
                     initClavier(gridPaneAlpha);
                     firstAlpha = true;
                 }
+                break;
             }
             case Lumiere: {
+                focusFonction(event);
                 break;
             }
             case VibLum: {
                 if (firstAlpha) {
-                    adapteClavier(gridPaneAlpha,listButtonProche);
+                    adapteClavier(gridPaneAlpha, listButtonProche);
                     firstAlpha = false;
                 } else {
-                    focus.setText(focus.getText() + ((Button) event.getSource()).getText());
+                    // focus.setText(focus.getText() + ((Button) event.getSource()).getText());
+                    focusFonction(event);
                     initClavier(gridPaneAlpha);
                     firstAlpha = true;
                 }
@@ -90,8 +97,8 @@ public class ClavierController implements Initializable {
 
     }
 
-    private void adapteClavier(GridPane gridPane,List<Button> listButtonProche) {
-       // List<Button> listButtonProche = adpaterAlphaKeyboard((Button) event.getSource());
+    private void adapteClavier(GridPane gridPane, List<Button> listButtonProche) {
+        // List<Button> listButtonProche = adpaterAlphaKeyboard((Button) event.getSource());
 
         int nbNode = gridPane.getChildren().size();
 
@@ -112,35 +119,40 @@ public class ClavierController implements Initializable {
 
     @FXML
     public void handleButtonActionNumeriqueKeyBoard(ActionEvent event) {
-       // System.out.println(focus.getText());
-        //focus.setText(focus.getText() + ((Button) event.getSource()).getText());
 
+        // System.out.println(focus.getText());
+        //focus.setText(focus.getText() + ((Button) event.getSource()).getText());
         List<Button> listButtonProche = adpaterNumeriqueKeyboard((Button) event.getSource());
 
-       switch (MenuController.etat) {
+        switch (MenuController.etat) {
             case Normal: {
-                focus.setText(focus.getText() + ((Button) event.getSource()).getText());
+                // focus.setText(focus.getText() + ((Button) event.getSource()).getText());
+                focusFonction(event);
                 break;
             }
             case Vibration: {
                 if (firstNum) {
-                    adapteClavier(gridPaneNumerique,listButtonProche);
+                   
+                    adapteClavier(gridPaneNumerique, listButtonProche);
                     firstNum = false;
                 } else {
-                    focus.setText(focus.getText() + ((Button) event.getSource()).getText());
+                    //focus.setText(focus.getText() + ((Button) event.getSource()).getText());
+                    focusFonction(event);
                     initClavier(gridPaneNumerique);
                     firstNum = true;
                 }
+                break;
             }
             case Lumiere: {
+                focusFonction(event);
                 break;
             }
             case VibLum: {
                 if (firstNum) {
-                    adapteClavier(gridPaneNumerique,listButtonProche);
+                    adapteClavier(gridPaneNumerique, listButtonProche);
                     firstNum = false;
                 } else {
-                    focus.setText(focus.getText() + ((Button) event.getSource()).getText());
+                    focusFonction(event);
                     initClavier(gridPaneNumerique);
                     firstNum = true;
                 }
@@ -203,6 +215,29 @@ public class ClavierController implements Initializable {
 
     private boolean effetBord(int x, int y, int maxX, int maxY) {
         return ((x >= 0 && x <= maxX) && (y >= 0 && y <= maxY));
+    }
+
+    public void focusFonction(ActionEvent event) {
+
+        if (((Button) event.getSource()).getText().equals("DEL")) {
+            String textAvant = focus.getText().substring(0, cursorPosition - 1);
+            String textApres = focus.getText().substring(cursorPosition, focus.getLength());
+            cursorPosition--;
+            focus.setText(textAvant + textApres);
+        } else if (((Button) event.getSource()).getText().equals("CLR")) {
+            focus.setText(" ");
+            //focus.deleteText(range);
+        } else if (((Button) event.getSource()).getText().equals("SP")) {
+            String textAvant = focus.getText().substring(0, cursorPosition);
+            String textApres = focus.getText().substring(cursorPosition, focus.getLength());
+            cursorPosition++;
+            focus.setText(textAvant + " " + textApres);
+        } else {
+            String textAvant = focus.getText().substring(0, cursorPosition);
+            String textApres = focus.getText().substring(cursorPosition, focus.getLength());
+            cursorPosition++;
+            focus.setText(textAvant + ((Button) event.getSource()).getText() + textApres);
+        }
     }
 
 }

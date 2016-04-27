@@ -23,7 +23,7 @@ import main.StillStandFMS;
  *
  * @author QYL
  */
-public class FLNpageController {
+public class FPLNpageController {
 
     private BorderPane rootBorder;
     private SplitPane rootSplit;
@@ -44,6 +44,7 @@ public class FLNpageController {
     private Button bValider;
 
     public static TextField focus;
+    public static int cursorPosition;
 
     public void setFLNpageController(BorderPane rootBorder, SplitPane rootSplit) {
         this.rootBorder = rootBorder;
@@ -77,23 +78,6 @@ public class FLNpageController {
     }
 
     /**
-     * Charger la page clavier sur le split en bas
-     */
-    @FXML
-    public void handleAfficherLeCheminEnCourant() {
-        try {
-
-            FXMLLoader loaderClavier = new FXMLLoader();
-            loaderClavier.setLocation(StillStandFMS.class.getResource("../view/Clavier.fxml"));
-            AnchorPane FXMLViewClavier = (AnchorPane) loaderClavier.load();
-            rootSplit.getItems().set(1, FXMLViewClavier);
-
-        } catch (IOException ex) {
-            Logger.getLogger(FLNpageController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-    /**
      * charger la page listEncourant sur le split en bas
      */
     @FXML
@@ -112,7 +96,7 @@ public class FLNpageController {
             rootSplit.getItems().set(1, FXMLViewClavier);
 
             //charger listCheminController
-            FLNpageListController controller = loaderChemins.getController();
+            FPLNpageListController controller = loaderChemins.getController();
 
             controller.setList("Gbessia International Airport (GUINEA)",
                     "Léopold-Sédar-Senghor Airport (SENEGAL)", "1200 KM", "1505");
@@ -123,7 +107,7 @@ public class FLNpageController {
             // afficher des donnee sur la TableView
             controller.afficherList();
         } catch (IOException ex) {
-            Logger.getLogger(FLNpageController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FPLNpageController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
@@ -161,15 +145,18 @@ public class FLNpageController {
         focus.setText(focus.getText() + boutton.getText());
     }
 
+    /*
+            charger la page clavier sur le split en bas
+     */
     @FXML
     public void handlerClickChamp(MouseEvent event) {
 
         TextField text = (TextField) event.getSource();
+
+        cursorPosition = text.getCaretPosition();
+
         focus = null;
         focus = text;
-
-        System.out.println("handlerClick " + text);
-        System.out.println("handlerClickChamp " + text.getId());
 
         try {
 
@@ -179,7 +166,7 @@ public class FLNpageController {
             rootSplit.getItems().set(1, FXMLViewClavier);
 
         } catch (IOException ex) {
-            Logger.getLogger(FLNpageController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FPLNpageController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }
