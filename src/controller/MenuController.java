@@ -5,6 +5,8 @@
  */
 package controller;
 
+import controller.util.Etat;
+import controller.util.DeclencherAction;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -101,13 +103,7 @@ public class MenuController implements Initializable {
                 luminosite.setSelected(false);
                 break;
             }
-            case LumAction:{
-                etat = Etat.LumAction;
-                normal.setSelected(false);
-                vibration.setSelected(false);
-                luminosite.setSelected(true);
-                break;
-            }
+            
             case VibLumAction:{
                 normal.setSelected(false);
                 vibration.setSelected(true);
@@ -151,24 +147,34 @@ public class MenuController implements Initializable {
                 }                 
                 break;
             }
-            case Lumiere:{//completer
-                etat = Etat.LumAction;
-                
-                break;
-            }
-            case LumAction:{// a completer
+            case Lumiere:{
                 etat = Etat.Lumiere;
+                executeDeclencheAPPR(); 
                 break;
             }
-            case VibLum:{//completer
+            case VibLum:{
                 etat = Etat.VibLumAction;
+                firstActionAPP = true;
+                DeclencherAction.declencherAction2(boutonAPPR, 100, 70);
+                DeclencherAction.declencherAction2(boutonGA, 61.0, 23.0);
                 break;
             }
             case VibLumAction:{
-                etat = Etat.VibLum;
+                if(firstActionGA){  
+                    etat = Etat.VibLumAction;
+                    firstActionAPP = true;
+                    firstActionGA = false;
+                    DeclencherAction.declencherAction2(boutonAPPR, 100, 70);
+                    DeclencherAction.declencherAction2(boutonGA, 61.0, 23.0);
+                    
+                }else{
+                    etat = Etat.VibLum;
+                    executeDeclencheAPPR();
+                    DeclencherAction.declencherAction2(boutonAPPR, 61.0, 23.0);
+                    firstActionAPP = false;  
+                }
                 break;
             }
-            
         }
            
     }
@@ -188,12 +194,16 @@ public class MenuController implements Initializable {
                 DeclencherAction.declencherAction2(boutonAPPR, 61.0, 23.0);
                 break;
             }
-            case Lumiere:{ //completer
-                etat = Etat.LumAction;
+            case Lumiere:{ 
+                etat = Etat.Lumiere;
+                executeDeclencheGA();
                 break;
             }
-            case VibLum:{ // completer
+            case VibLum:{ 
                 etat = Etat.VibLumAction;
+                firstActionGA = true;
+                DeclencherAction.declencherAction2(boutonGA, 100, 70);
+                DeclencherAction.declencherAction2(boutonAPPR, 61.0, 23.0);
                 break;
             }
             case VibAction:{
@@ -211,14 +221,22 @@ public class MenuController implements Initializable {
                 }         
                 break;
             }
-            case LumAction:{ // a completer
-                etat = Etat.Lumiere;
-                break;
-            }
             case VibLumAction:{
-                etat = Etat.VibLum;
+                if(firstActionAPP){
+                    firstActionGA = true;
+                    firstActionAPP = false;
+                    etat = Etat.VibLumAction;
+                    DeclencherAction.declencherAction2(boutonGA, 100, 70);
+                    DeclencherAction.declencherAction2(boutonAPPR, 61.0, 23.0);
+                }else{
+                    etat = Etat.VibLum;
+                    firstActionGA = false;
+                    executeDeclencheGA();
+                    DeclencherAction.declencherAction2(boutonGA, 61.0, 23.0);
+                }         
                 break;
             }
+            
         }
         
 
@@ -270,8 +288,7 @@ public class MenuController implements Initializable {
                 luminosite.setSelected(true);
                 break;
             }
-            case LumAction://interdit
-                break;
+            
             case VibAction://interdit
                 break;
             case VibLumAction://interdit
@@ -284,41 +301,19 @@ public class MenuController implements Initializable {
      */
     @FXML
     private void activeLimuniere(ActionEvent event){
-        if(vibration.isSelected()){
-            etat = Etat.VibLum;
-            normal.setSelected(false); 
-            vibration.setSelected(true);
-            luminosite.setSelected(true);
-        }else{
-            etat = Etat.Lumiere;
-            normal.setSelected(false); 
-            vibration.setSelected(false);
-            luminosite.setSelected(true);
-        }
-       this.fms.setStyleCss(2);
-    }
-    /**
-     * active dans le deux contexte
-     * 
-     */
-    private void activeDesactiveContexte(CheckBox plimuniere, CheckBox pvibration){
-        if((plimuniere.isSelected())&&pvibration.isSelected()){
-           pvibration.setSelected(true);
-        }
-        switch(etat){
+       switch(etat){
             case Normal: 
                 etat = Etat.Lumiere;
                 normal.setSelected(false);
                 vibration.setSelected(false);
                 luminosite.setSelected(true);
                 break;
-            case Vibration:{
+            case Vibration:
                 etat = Etat.VibLum;
                 normal.setSelected(false);
                 vibration.setSelected(true);
                 luminosite.setSelected(true);
                 break;
-            }               
             case Lumiere:{
                 etat = Etat.Lumiere;
                 normal.setSelected(false);
@@ -333,15 +328,15 @@ public class MenuController implements Initializable {
                 luminosite.setSelected(false);
                 break;
             }
-            case LumAction://interdit
-                break;
+            
             case VibAction://interdit
                 break;
-            case VibLumAction: //interdit
+            case VibLumAction://interdit
                 break;
-                    
-        }       
+        }
+       this.fms.setStyleCss(2);
     }
+    
     
     public void chargerFXML(){
         try {

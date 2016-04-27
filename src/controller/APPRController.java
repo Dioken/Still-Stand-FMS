@@ -5,6 +5,7 @@
  */
 package controller;
 
+import controller.util.DeclencherAction;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -53,13 +54,24 @@ public class APPRController {
                 break;
             }
             case Lumiere:{// a completer
-                
+                secondCliked = false;
+                declencherFLNPage();
                 break;
             }
-            case VibLum:{// a completer
-                
+            case VibLum:{
+                if(secondCliked){
+                    declencherFLNPage();
+                    secondCliked = false;
+                }else{
+                    DeclencherAction.declencherAction2(boutonFLNPAGE, 100, 70);
+                    secondCliked = true;
+                }
                 break;
             }
+            case VibAction://interdit
+                break;
+            case VibLumAction://interdit
+                break;
         }
     }
     

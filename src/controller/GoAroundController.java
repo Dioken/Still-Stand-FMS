@@ -5,6 +5,7 @@
  */
 package controller;
 
+import controller.util.DeclencherAction;
 import java.io.IOException;
 import java.net.URL;
 import java.util.logging.Level;
@@ -54,14 +55,25 @@ public class GoAroundController {
                 }
                 break;
             }
-            case Lumiere: {// a completer
-
+            case Lumiere: {
+                secondCliked = false;
+                declencehrFLNPage();
                 break;
             }
-            case VibLum: {// a completer
-
+            case VibLum: {
+                if (secondCliked) {
+                    declencehrFLNPage();
+                    secondCliked = false;
+                } else {
+                    DeclencherAction.declencherAction2(boutoonFLNPage, 100, 70);
+                    secondCliked = true;
+                }
                 break;
             }
+            case VibAction://interdit
+                break;
+            case VibLumAction://interdit
+                break;
         }
 
     }

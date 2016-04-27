@@ -5,7 +5,6 @@
  */
 package main;
 
-import controller.EtatController.Etat;
 import controller.MenuController;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -26,7 +25,7 @@ public class StillStandFMS extends Application {
     private Stage primaryStage;    
     private BorderPane rootBorder;
     private FXMLLoader loaderCenter;
-    Etat etat;
+
     Scene scene;
     @Override
     public void start(Stage primaryStage) {
@@ -49,7 +48,7 @@ public class StillStandFMS extends Application {
      */
     private void initRootLayout(){
         try {
-            etat = Etat.Normal;
+            
             // Load root layout from fxml file.
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(StillStandFMS.class.getResource("/view/Root.fxml"));
