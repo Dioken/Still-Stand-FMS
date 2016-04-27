@@ -16,6 +16,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.ColorPicker;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import main.StillStandFMS;
@@ -26,6 +27,11 @@ import main.StillStandFMS;
  * @author bah
  */
 public class MenuController implements Initializable {
+
+
+    @FXML
+    private Button boutonCRZ;    
+
     @FXML
     private Button boutonGA;
     @FXML
@@ -36,6 +42,9 @@ public class MenuController implements Initializable {
     private CheckBox vibration;
     @FXML
     private CheckBox luminosite;
+    @FXML
+    private ColorPicker couleurPicker;
+    public static String btCouleur;
     
     //Etat dans le conetxte
     public static Etat etat = Etat.Normal;
@@ -44,8 +53,11 @@ public class MenuController implements Initializable {
     private BorderPane rootBorder;
     private FXMLLoader loaderCenter;
     private FXMLLoader loaderLeft;
-    public void setStillStandFMS(BorderPane rootBorder){
-        this.rootBorder = rootBorder;
+    StillStandFMS fms;        
+    
+    public void setStillStandFMS(BorderPane rootBorder,StillStandFMS fms){
+        this.rootBorder = rootBorder;        
+        this.fms = fms;
     }
     /**
      * Initializes the controller class.
@@ -223,6 +235,8 @@ public class MenuController implements Initializable {
         luminosite.setSelected(false);
         DeclencherAction.declencherAction2(boutonGA, 61.0, 23.0);
         DeclencherAction.declencherAction2(boutonAPPR, 61.0, 23.0);
+        //change les couleurs de bouton
+        this.fms.setStyleCss(1);
     }
     /**
      * Armer le contexte vibration
@@ -270,6 +284,27 @@ public class MenuController implements Initializable {
      */
     @FXML
     private void activeLimuniere(ActionEvent event){
+        if(vibration.isSelected()){
+            etat = Etat.VibLum;
+            normal.setSelected(false); 
+            vibration.setSelected(true);
+            luminosite.setSelected(true);
+        }else{
+            etat = Etat.Lumiere;
+            normal.setSelected(false); 
+            vibration.setSelected(false);
+            luminosite.setSelected(true);
+        }
+       this.fms.setStyleCss(2);
+    }
+    /**
+     * active dans le deux contexte
+     * 
+     */
+    private void activeDesactiveContexte(CheckBox plimuniere, CheckBox pvibration){
+        if((plimuniere.isSelected())&&pvibration.isSelected()){
+           pvibration.setSelected(true);
+        }
         switch(etat){
             case Normal: 
                 etat = Etat.Lumiere;
@@ -321,7 +356,7 @@ public class MenuController implements Initializable {
     
     public void chargerFXMLController(){
         FXMLController fxmlController=loaderLeft.getController();
-        fxmlController.setFXMLController(rootBorder);
+        fxmlController.setFXMLController(rootBorder,fms);
     }
     
     public void chargerGoAroundController(){
@@ -333,7 +368,12 @@ public class MenuController implements Initializable {
         APPRController apprController = loaderCenter.getController();
         apprController.setAPPRController(rootBorder);
     }
-    
+    /*
+    public void onClickCouleurPicker(){
+        btCouleur = this.couleurPicker.getValue().toString().substring(2, 8);
+        boutonCRZ.setStyle("-fx-background-color: #"+btCouleur+";");
+    }
+    */
      public void changerCss(){
      //   rootBorder.getStylesheets().add("/view/modena.css");
         

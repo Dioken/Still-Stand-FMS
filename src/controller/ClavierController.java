@@ -5,6 +5,7 @@
  */
 package controller;
 
+import static controller.FLNpageController.focus;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,62 +31,89 @@ public class ClavierController implements Initializable {
     private List<Button> buttonsAlpha;
 
     
-     @FXML
+    @FXML
     private List<Button> buttonsNumerique;
      
     @FXML
     private GridPane gridPaneAlpha;
+    
+    @FXML
+    private GridPane gridPaneNumerique;
+    
+  
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-          
-    }    
-    
+    }           
+
     @FXML
     public void handleButtonActionAlphaKeyBoard(ActionEvent event) {
-     // Button was clicked, do something...
-       // System.out.println("view.ClavierController.handleButtonAction() "+event.getSource());
-        /*List<Button> listButtonProche =adpaterAlphaKeyboard((Button) event.getSource());
+        System.out.println(focus.getText());
+        focus.setText(focus.getText()+((Button)event.getSource()).getText());
+
+        // Button was clicked, do something...
+      
+        List<Button> listButtonProche =adpaterAlphaKeyboard((Button) event.getSource());
+
+
         int nbNode = gridPaneAlpha.getChildren().size();
+
         for(int i = 0; i < nbNode; i++){
-            gridPaneAlpha.getChildren().get(i).setVisible(false);
+            if(!listButtonProche.contains(gridPaneAlpha.getChildren().get(i))){
+                gridPaneAlpha.getChildren().get(i).setVisible(false);
+            }
+            
+            
         }
-        //System.out.println(listButtonProche.get(0));
-        gridPaneAlpha.add(listButtonProche.get(0), 0, 0);*/
+
      }
     
     @FXML
     public void handleButtonActionNumeriqueKeyBoard(ActionEvent event) {
-     // Button was clicked, do something...
-        /*System.out.println("view.ClavierController.handleButtonAction()");
-        System.err.println(event.getSource().toString());
-        List<Button> listButtonProche = adpaterNumeriqueKeyboard((Button) event.getSource());*/
+        System.out.println(focus.getText());
+        focus.setText(focus.getText()+((Button)event.getSource()).getText());
+       
+        List<Button> listButtonProche = adpaterNumeriqueKeyboard((Button) event.getSource());       
+        
+        int nbNode = gridPaneNumerique.getChildren().size();
+        
+        for(int i = 0; i < nbNode; i++){
+            if(!listButtonProche.contains(gridPaneNumerique.getChildren().get(i))){
+                gridPaneNumerique.getChildren().get(i).setVisible(false);
+            }
+            
+            
+        }
+
      }
     
-    public List<Button> adpaterAlphaKeyboard(Button buttonRepere){
+    private List<Button> adpaterAlphaKeyboard(Button buttonRepere){
+                
         
        int indexButtonRepere; 
-        System.out.println("Alpha "+buttonRepere);
+       // System.out.println("Alpha "+buttonsAlpha.size());
        indexButtonRepere = buttonsAlpha.indexOf(buttonRepere);
+        System.out.println("indexButtonRepere "+indexButtonRepere);
        List<Button> listButtonProche = new ArrayList<>();
        int pX = transFormX(indexButtonRepere, 5);
        int pY = transFormY(indexButtonRepere, 5);
-    
+       System.out.println("pX "+pX+" pY"+pY);
        for(int i =-1 ;i <= 1 ; i++){
            for(int j = -1 ;j <= 1 ; j++){
-                 if(effetBord(i+pX, j+pY)){
-                   listButtonProche.add(buttonsAlpha.get(trans2Dto1D(i+pX,j+pY)));
+                 if(effetBord(i+pX, j+pY,5,4)){   
+                   listButtonProche.add(buttonsAlpha.get(trans2Dto1D(i+pX,j+pY,5)));
                  }
             }
        }
-         
+      
+        System.out.println(listButtonProche);
        return listButtonProche;   
     }
     
-    public List<Button> adpaterNumeriqueKeyboard(Button buttonRepere){
+    private List<Button> adpaterNumeriqueKeyboard(Button buttonRepere){
         
        int indexButtonRepere;
       
@@ -96,8 +124,8 @@ public class ClavierController implements Initializable {
     
        for(int i =-1 ;i <= 1 ; i++){
            for(int j = -1 ;j <= 1 ; j++){
-                 if(effetBord(i+pX, j+pY)){
-                   listButtonProche.add(buttonsNumerique.get(trans2Dto1D(i+pX,j+pY)));
+                 if(effetBord(i+pX, j+pY,3,2)){
+                   listButtonProche.add(buttonsNumerique.get(trans2Dto1D(i+pX,j+pY,3)));
                  }
             }
        }
@@ -113,16 +141,13 @@ public class ClavierController implements Initializable {
         return index % sizeTab;
     }
     
-    private int trans2Dto1D(int indexX,int indexY){
-        return (indexX * 5 + indexY) ;
+    private int trans2Dto1D(int indexX,int indexY,int nbColum){
+        return (indexX * nbColum + indexY) ;
     }
     
-    private boolean effetBord(int x,int y){
-	 return ((x>=0 && x<4) && (y>=0 && y<5));
+    private boolean effetBord(int x,int y,int maxX,int maxY){
+         return ((x>=0 && x<=maxX) && (y>=0 && y<=maxY));
     }	
 
-    public java.awt.Button[][] adpaterKeyboard(java.awt.Button b1, List<java.awt.Button> buttonList) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
 }

@@ -32,10 +32,11 @@ public class FXMLController {
     private boolean firstActionMenu = false;
     private BorderPane rootBorder;
     FXMLLoader loaderCenter = null;
-
+    StillStandFMS fms;
     
-    public void setFXMLController(BorderPane rootBorder){
+    public void setFXMLController(BorderPane rootBorder,StillStandFMS fms){
         this.rootBorder = rootBorder;
+        this.fms = fms;
     }
     
     @FXML
@@ -194,7 +195,7 @@ public class FXMLController {
     
     public void chargerMenuController(){
         MenuController apprController = loaderCenter.getController();
-        apprController.setStillStandFMS(rootBorder);
+        apprController.setStillStandFMS(rootBorder,fms);
     }
 
     private void declencherGA() {

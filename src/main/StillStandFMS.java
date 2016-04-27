@@ -10,20 +10,12 @@ import controller.MenuController;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.io.IOException;
-import java.net.URL;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.application.Application;
-import javafx.application.ConditionalFeature;
-import javafx.application.Platform;
 import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
-import javax.swing.UIDefaults;
-import javax.swing.UIManager;
 
 /**
  *
@@ -35,6 +27,7 @@ public class StillStandFMS extends Application {
     private BorderPane rootBorder;
     private FXMLLoader loaderCenter;
     Etat etat;
+    Scene scene;
     @Override
     public void start(Stage primaryStage) {
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -61,16 +54,27 @@ public class StillStandFMS extends Application {
             loader.setLocation(StillStandFMS.class.getResource("/view/Root.fxml"));
             rootBorder = (BorderPane) loader.load();
             // Show the scene containing the root layout.
-            Scene scene = new Scene(rootBorder);
+            scene = new Scene(rootBorder);
+            scene.getStylesheets().add("/view/StyleSheet1.css");
             primaryStage.setScene(scene);
             primaryStage.show();
-            //scene.getStylesheets().add("/view/modena.css");
+            
         } catch (IOException ex) {
           ex.printStackTrace();
         }
     }
-
-    private void showMenuView(){
+    
+    public void setStyleCss(int couleur){
+        if(couleur==1){
+            scene.getStylesheets().clear();
+            scene.getStylesheets().add("/view/StyleSheet1.css");
+        }else{           
+            scene.getStylesheets().clear();
+            scene.getStylesheets().add("/view/StyleSheet2.css");
+        }        
+    }
+    
+    private void showMenuView() {
         try {
             loaderCenter = new FXMLLoader();
             loaderCenter.setLocation(StillStandFMS.class.getResource("/view/Menu.fxml"));
@@ -93,7 +97,7 @@ public class StillStandFMS extends Application {
 
     private void chargerMenuController(){       
         MenuController menuController = loaderCenter.getController();
-        menuController.setStillStandFMS(rootBorder);
+        menuController.setStillStandFMS(rootBorder,this);
 
     }
 
