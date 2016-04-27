@@ -14,7 +14,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+
 
 /**
  * FXML Controller class
@@ -22,7 +25,7 @@ import javafx.scene.layout.GridPane;
  * @author mars
  */
 public class ClavierController implements Initializable {
-
+    
     @FXML
     private List<Button> buttonsAlpha;
 
@@ -50,6 +53,7 @@ public class ClavierController implements Initializable {
       
         List<Button> listButtonProche =adpaterAlphaKeyboard((Button) event.getSource());
 
+
         int nbNode = gridPaneAlpha.getChildren().size();
 
         for(int i = 0; i < nbNode; i++){
@@ -64,6 +68,7 @@ public class ClavierController implements Initializable {
     
     @FXML
     public void handleButtonActionNumeriqueKeyBoard(ActionEvent event) {
+
        
         List<Button> listButtonProche = adpaterNumeriqueKeyboard((Button) event.getSource());
         int nbNode = gridPaneNumerique.getChildren().size();
@@ -75,6 +80,7 @@ public class ClavierController implements Initializable {
             
             
         }
+
      }
     
     private List<Button> adpaterAlphaKeyboard(Button buttonRepere){
@@ -134,5 +140,6 @@ public class ClavierController implements Initializable {
     private boolean effetBord(int x,int y,int maxX,int maxY){
          return ((x>=0 && x<=maxX) && (y>=0 && y<=maxY));
     }	
+
 
 }

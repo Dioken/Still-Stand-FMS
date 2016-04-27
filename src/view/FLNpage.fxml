@@ -40,7 +40,7 @@
             <TextField fx:id="radio" editable="false" onMouseClicked="#handleAfficherLeCheminEnCourant" onMouseReleased="#handleAfficherLeCheminEnCourant" GridPane.columnIndex="1" GridPane.rowIndex="5" />
             <Button mnemonicParsing="false" onAction="#handleEntererListe" prefHeight="25.0" prefWidth="70.0" text="LISTER" GridPane.columnIndex="3" GridPane.rowIndex="5" />
             <Label prefHeight="17.0" prefWidth="51.0" text="NUM CH" GridPane.rowIndex="1" />
-            <TextField fx:id="numch" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="numch" onMouseClicked="#handleAfficherLeCheminEnCourant" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <Button mnemonicParsing="false" onAction="#chercherChenim" text="CHERCHER" GridPane.columnIndex="3" GridPane.rowIndex="2" />
          </children>
       </GridPane>

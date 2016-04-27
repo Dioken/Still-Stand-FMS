@@ -9,6 +9,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import java.util.ArrayList?>
 
+
 <!--<?import java.util.ArrayList?>-->
 
 <AnchorPane id="AnchorPane" prefHeight="200.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ClavierController">
@@ -91,8 +92,7 @@
                   <Button fx:id="q" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleButtonActionAlphaKeyBoard" prefHeight="56.0" prefWidth="56.0" text="Q" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                   <Button fx:id="r" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleButtonActionAlphaKeyBoard" prefHeight="56.0" prefWidth="56.0" text="R" GridPane.columnIndex="2" GridPane.rowIndex="3" />
                   <Button fx:id="s" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleButtonActionAlphaKeyBoard" prefHeight="56.0" prefWidth="56.0" text="S" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-                  <Button fx:id="t" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleButtonActionAlphaKeyBoard" prefHeight="56.0" prefWidth="56.0" text="T" GridPane.columnIndex="4" GridPane.rowIndex="3" />
-                  
+                  <Button fx:id="t" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleButtonActionAlphaKeyBoard" prefHeight="56.0" prefWidth="56.0" text="T" GridPane.columnIndex="4" GridPane.rowIndex="3" />            
                   <Button fx:id="u" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleButtonActionAlphaKeyBoard" prefHeight="56.0" prefWidth="56.0" text="U" GridPane.columnIndex="0" GridPane.rowIndex="4" />
                   <Button fx:id="v" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleButtonActionAlphaKeyBoard" prefHeight="56.0" prefWidth="56.0" text="V" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                   <Button fx:id="w" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleButtonActionAlphaKeyBoard" prefHeight="56.0" prefWidth="56.0" text="W" GridPane.columnIndex="2" GridPane.rowIndex="4" />

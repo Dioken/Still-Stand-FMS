@@ -84,7 +84,7 @@ public class GoAroundController {
             AnchorPane FXMLViewSplit = (AnchorPane) loaderSplit.load();
             rootSplit.getItems().set(0, FXMLViewSplit);
             
-            /* Ajouter l'ensemble des chemins */
+            /* Ajouter l'ensemble des chemins de vol (way points)*/
             FXMLLoader loaderSplit2 = new FXMLLoader();
             loaderSplit2.setLocation(StillStandFMS.class.getResource("../view/FLNpageList.fxml"));            
             AnchorPane FXMLViewList = (AnchorPane) loaderSplit2.load();
