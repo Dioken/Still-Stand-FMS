@@ -91,7 +91,7 @@ public class FPLNpageController {
         try {
             FXMLLoader loaderChemins = new FXMLLoader();
 
-            loaderChemins.setLocation(StillStandFMS.class.getResource("../view/FLNpageList.fxml"));
+            loaderChemins.setLocation(StillStandFMS.class.getResource("/view/FPLNpageList.fxml"));
             AnchorPane FXMLViewClavier = (AnchorPane) loaderChemins.load();
             rootSplit.getItems().set(1, FXMLViewClavier);
 
@@ -161,7 +161,7 @@ public class FPLNpageController {
         try {
 
             FXMLLoader loaderClavier = new FXMLLoader();
-            loaderClavier.setLocation(StillStandFMS.class.getResource("../view/Clavier.fxml"));
+            loaderClavier.setLocation(StillStandFMS.class.getResource("/view/Clavier.fxml"));
             AnchorPane FXMLViewClavier = (AnchorPane) loaderClavier.load();
             rootSplit.getItems().set(1, FXMLViewClavier);
 
