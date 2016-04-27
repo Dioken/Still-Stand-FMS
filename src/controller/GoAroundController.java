@@ -21,7 +21,8 @@ import main.StillStandFMS;
  *
  * @author QYL
  */
-public class GoAroundController {  
+public class GoAroundController {
+
     @FXML
     private Button boutoonFLNPage;
     private BorderPane rootBorder;
@@ -30,71 +31,71 @@ public class GoAroundController {
     FXMLLoader loaderSplit = null;
     FXMLLoader loaderClavier = null;
     boolean secondCliked = false;
-    public void setGoAround(BorderPane rootBorder){
+
+    public void setGoAround(BorderPane rootBorder) {
         this.rootBorder = rootBorder;
     }
 
     @FXML
     public void handleEntererFLNPage() {
-        switch(MenuController.etat){
-            case Normal:{
+        switch (MenuController.etat) {
+            case Normal: {
                 secondCliked = false;
                 declencehrFLNPage();
                 break;
             }
-            case Vibration:{
-                if(secondCliked){
+            case Vibration: {
+                if (secondCliked) {
                     declencehrFLNPage();
                     secondCliked = false;
-                }else{
+                } else {
                     DeclencherAction.declencherAction2(boutoonFLNPage, 100, 70);
                     secondCliked = true;
                 }
                 break;
             }
-            case Lumiere:{// a completer
-                
+            case Lumiere: {// a completer
+
                 break;
             }
-            case VibLum:{// a completer
-                
+            case VibLum: {// a completer
+
                 break;
             }
         }
-        
+
     }
-    
-    public void chargerFLNController(){
-        FLNpageController flnController = loaderSplit.getController();
-        flnController.setFLNpageController(rootBorder,rootSplit);  
+
+    public void chargerFLNController() {
+        FPLNpageController flnController = loaderSplit.getController();
+        flnController.setFLNpageController(rootBorder, rootSplit);
     }
 
     private void declencehrFLNPage() {
-        try {                    
+        try {
             loaderCenter = new FXMLLoader();
             loaderCenter.setLocation(StillStandFMS.class.getResource("../view/FLNpageSplit.fxml"));
             rootSplit = (SplitPane) loaderCenter.load();
             rootBorder.setCenter(rootSplit);
-            
+
             /*
             Charger la page FLN sur le split  en haut.
-            */
+             */
             loaderSplit = new FXMLLoader();
-            loaderSplit.setLocation(StillStandFMS.class.getResource("../view/FLNpage.fxml"));            
+            loaderSplit.setLocation(StillStandFMS.class.getResource("../view/FLNpage.fxml"));
             AnchorPane FXMLViewSplit = (AnchorPane) loaderSplit.load();
             rootSplit.getItems().set(0, FXMLViewSplit);
-            
+
             /* Ajouter l'ensemble des chemins de vol (way points)*/
             FXMLLoader loaderSplit2 = new FXMLLoader();
-            loaderSplit2.setLocation(StillStandFMS.class.getResource("../view/FLNpageList.fxml"));            
+            loaderSplit2.setLocation(StillStandFMS.class.getResource("../view/FLNpageList.fxml"));
             AnchorPane FXMLViewList = (AnchorPane) loaderSplit2.load();
             rootSplit.getItems().set(1, FXMLViewList);
-            
-            
+
         } catch (IOException ex) {
             Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         chargerFLNController();
     }
 }

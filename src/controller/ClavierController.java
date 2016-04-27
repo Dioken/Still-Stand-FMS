@@ -5,8 +5,8 @@
  */
 package controller;
 
-import static controller.FLNpageController.cursorPosition;
-import static controller.FLNpageController.focus;
+import static controller.FPLNpageController.cursorPosition;
+import static controller.FPLNpageController.focus;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;

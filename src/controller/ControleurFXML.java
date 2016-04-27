@@ -23,7 +23,7 @@ public class ControleurFXML implements Initializable {
     private ClavierController controllerClavier;
     
     @FXML
-    private FLNpageController controllerFlnPage;
+    private FPLNpageController controllerFlnPage;
     /**
      * Initializes the controller class.
      */
