@@ -4,11 +4,11 @@
  * and open the template in the editor.
  */
 package sttill.stand.fms.test;
-import java.awt.Button;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.*;
-import view.ClavierController;
+import controller.ClavierController;
+import javafx.scene.control.Button;
 /**
  *
  * @author mars
@@ -84,26 +84,22 @@ public class ClavierTest {
         buttonList.add(b28);
         buttonList.add(b29);
 
-        
+      
 
         //then 
-        Button[][] arrayButton = clavier.adpaterKeyboard(b1, buttonList);
+      //  List<Button> arrayButton = clavier.adpaterNumeriqueKeyboard2(b25, buttonList);
         
-        Button[][] expectArrayButton = new Button[3][3];
-        expectArrayButton[0][0] = b1;
-        expectArrayButton[0][1] = b2;
-        expectArrayButton[0][2] = b3;
-        expectArrayButton[1][0] = b5;
-        expectArrayButton[1][1] = b6;
-        expectArrayButton[1][2] = b7;
-        expectArrayButton[2][0] = b9;
-        expectArrayButton[2][1] = b10;
-        expectArrayButton[2][2] = b11;
-        System.out.println("Out : "+arrayButton[0][2].getLabel());
-        
-        Assert.assertEquals(expectArrayButton[0][0].getLabel(), arrayButton[0][0].getLabel());
-        Assert.assertEquals(expectArrayButton[0][1].getLabel(), arrayButton[0][1].getLabel());
-        Assert.assertEquals(expectArrayButton[0][2].getLabel(), arrayButton[0][2].getLabel());
+        List<Button> expectArrayButton = new ArrayList<>();
+        expectArrayButton.add(b1);
+        expectArrayButton.add(b2);
+        expectArrayButton.add(b3);
+        expectArrayButton.add(b5);
+        expectArrayButton.add(b6);
+        expectArrayButton.add(b7);
+        expectArrayButton.add(b9);
+        expectArrayButton.add(b10);
+        expectArrayButton.add(b11);
+       
        /* Assert.assertEquals(expectArrayButton[1][0].getLabel(), arrayButton[1][0].getLabel());
         Assert.assertEquals(expectArrayButton[1][1].getLabel(), arrayButton[1][1].getLabel());
         Assert.assertEquals(expectArrayButton[1][2].getLabel(), arrayButton[1][2].getLabel());
