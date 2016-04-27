@@ -63,7 +63,7 @@ public class APPRController {
     }
     
     public void chargerFLNController(){
-        FLNpageController flnController = loaderSplit.getController();
+        FPLNpageController flnController = loaderSplit.getController();
         flnController.setFLNpageController(rootBorder,rootSplit);  
     }
 

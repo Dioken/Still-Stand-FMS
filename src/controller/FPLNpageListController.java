@@ -17,38 +17,43 @@ import javafx.scene.control.TableView;
  *
  * @author sowoumar25
  */
-public class FLNpageListController {
+public class FPLNpageListController {
+
     private ObservableList<ListChemin> listCheminsData = FXCollections.observableArrayList();
     @FXML
-    private TableColumn<ListChemin,String> fromColumn;
+    private TableColumn<ListChemin, String> fromColumn;
     @FXML
-    private TableColumn<ListChemin,String> destColumn;
+    private TableColumn<ListChemin, String> destColumn;
     @FXML
-    private TableColumn<ListChemin,String> distColumn;
+    private TableColumn<ListChemin, String> distColumn;
     @FXML
-    private TableColumn<ListChemin,String> radioColumn;
+    private TableColumn<ListChemin, String> radioColumn;
     @FXML
     private TableView<ListChemin> listTable;
-    
+
     public ObservableList<ListChemin> getListChemins() {
         return listCheminsData;
     }
-    
+
+    /**
+     * Initialize the person table with the two columns
+     */
     @FXML
     private void initialize() {
-        // Initialize the person table with the two columns.
         fromColumn.setCellValueFactory(cellData -> cellData.getValue().fromProperty());
         destColumn.setCellValueFactory(cellData -> cellData.getValue().destProperty());
         distColumn.setCellValueFactory(cellData -> cellData.getValue().distProperty());
         radioColumn.setCellValueFactory(cellData -> cellData.getValue().radioProperty());
     }
+
     
-    public void afficherList(){
+    public void afficherList() {
         System.out.println(listTable.getItems().size());
         listTable.setItems(getListChemins());
-    }        
-    public void setList(String from,String dest,String dist,String radio){
+    }
+
+    public void setList(String from, String dest, String dist, String radio) {
         System.out.println(listTable.getItems().size());
-        listCheminsData.add(new ListChemin(from,dest,dist,radio));        
+        listCheminsData.add(new ListChemin(from, dest, dist, radio));
     }
 }
