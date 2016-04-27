@@ -16,6 +16,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.ColorPicker;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import main.StillStandFMS;
@@ -28,7 +29,7 @@ import main.StillStandFMS;
 public class MenuController implements Initializable {
 
     @FXML
-    private Button boutonCRZ;
+    private Button boutonCRZ;    
     @FXML
     private Button boutonGA;
     @FXML
@@ -39,6 +40,9 @@ public class MenuController implements Initializable {
     private CheckBox vibration;
     @FXML
     private CheckBox luminosite;
+    @FXML
+    private ColorPicker couleurPicker;
+    public static String btCouleur;
     
     //Etat dans le conetxte
     public static Etat etat = Etat.Normal;
@@ -46,7 +50,7 @@ public class MenuController implements Initializable {
     private BorderPane rootBorder;
     private FXMLLoader loaderCenter;
     private FXMLLoader loaderLeft;
-    StillStandFMS fms;
+    StillStandFMS fms;        
     
     public void setStillStandFMS(BorderPane rootBorder,StillStandFMS fms){
         this.rootBorder = rootBorder;        
@@ -318,7 +322,12 @@ public class MenuController implements Initializable {
         APPRController apprController = loaderCenter.getController();
         apprController.setAPPRController(rootBorder);
     }
-    
+    /*
+    public void onClickCouleurPicker(){
+        btCouleur = this.couleurPicker.getValue().toString().substring(2, 8);
+        boutonCRZ.setStyle("-fx-background-color: #"+btCouleur+";");
+    }
+    */
      public void changerCss(){
      //   rootBorder.getStylesheets().add("/view/modena.css");
         

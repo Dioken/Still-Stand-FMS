@@ -4,7 +4,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FLNpageController">
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FLNpageController">
    <children>
       <GridPane alignment="CENTER" layoutX="-7.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-7.0" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="0.0">
         <columnConstraints>
@@ -26,17 +26,17 @@
             <Label text="FROM" GridPane.rowIndex="2" />
             <Label text="DEST" GridPane.rowIndex="3" />
             <Label text="DIST" GridPane.rowIndex="4" />
-            <TextField fx:id="from" editable="false" onMouseClicked="#handleAfficherLeCheminEnCourant" onMouseReleased="#handleAfficherLeCheminEnCourant" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField fx:id="dest" editable="false" onMouseClicked="#handleAfficherLeCheminEnCourant" onMouseReleased="#handleAfficherLeCheminEnCourant" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField fx:id="dist" editable="false" onMouseClicked="#handleAfficherLeCheminEnCourant" onMouseReleased="#handleAfficherLeCheminEnCourant" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField fx:id="from" editable="false" onMouseClicked="#handlerClickChamp" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="dest" editable="false" onMouseClicked="#handlerClickChamp" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="dist" editable="false" onMouseClicked="#handlerClickChamp" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <Button fx:id="bModifier" mnemonicParsing="false" onAction="#activerModification" text="MODIFIER" GridPane.columnIndex="3" GridPane.rowIndex="1" />
             <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" text="INSERER" GridPane.columnIndex="3" GridPane.rowIndex="4" />
             <Button fx:id="bValider" disable="true" mnemonicParsing="false" onAction="#apuyerBtValide" prefHeight="25.0" prefWidth="70.0" text="VALIDER" GridPane.columnIndex="3" GridPane.rowIndex="3" />
             <Label text="RADIO" GridPane.rowIndex="5" />
-            <TextField fx:id="radio" editable="false" onMouseClicked="#handleAfficherLeCheminEnCourant" onMouseReleased="#handleAfficherLeCheminEnCourant" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <TextField fx:id="radio" editable="false" onMouseClicked="#handlerClickChamp" GridPane.columnIndex="1" GridPane.rowIndex="5" />
             <Button mnemonicParsing="false" onAction="#handleEntererListe" prefHeight="25.0" prefWidth="70.0" text="LISTER" GridPane.columnIndex="3" GridPane.rowIndex="5" />
             <Label prefHeight="17.0" prefWidth="51.0" text="NUM CH" GridPane.rowIndex="1" />
-            <TextField fx:id="numch" onMouseClicked="#handleAfficherLeCheminEnCourant" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="numch" onMouseClicked="#handlerClickChamp" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <Button mnemonicParsing="false" onAction="#chercherChenim" text="CHERCHER" GridPane.columnIndex="3" GridPane.rowIndex="2" />
          </children>
       </GridPane>

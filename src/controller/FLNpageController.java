@@ -42,6 +42,8 @@ public class FLNpageController {
     @FXML
     private Button bValider;
     
+    public static TextField focus;
+    
     public void setFLNpageController(BorderPane rootBorder,SplitPane rootSplit){
         this.rootBorder = rootBorder;
         this.rootSplit = rootSplit;
@@ -184,11 +186,32 @@ public class FLNpageController {
         
         Button boutton = (Button) event.getSource();
         System.out.println("handlerRemplirChamp "+event.getSource()+" || "+boutton.getText());
-        
+        focus.setText(focus.getText()+boutton.getText());
        // if(this.dest.isFocused()){
        /*if(dest==null)
             System.out.println("null");*/
             //this.dest.setText(this.);
         //}
+    }
+    @FXML 
+    public void handlerClickChamp(MouseEvent event){
+        
+        TextField text = (TextField) event.getSource();
+        focus = null;
+        focus = text;
+        
+        System.out.println("handlerClick "+text);
+        System.out.println("handlerClickChamp "+text.getId());
+
+        try {
+            
+            FXMLLoader loaderClavier = new FXMLLoader();
+            loaderClavier.setLocation(StillStandFMS.class.getResource("../view/Clavier.fxml"));                            
+            AnchorPane FXMLViewClavier = (AnchorPane) loaderClavier.load();
+            rootSplit.getItems().set(1, FXMLViewClavier);
+
+        } catch (IOException ex) {
+            Logger.getLogger(FLNpageController.class.getName()).log(Level.SEVERE, null, ex);
+        }  
     }
 }
