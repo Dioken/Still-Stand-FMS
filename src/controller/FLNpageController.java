@@ -24,6 +24,7 @@ import main.StillStandFMS;
  * @author QYL
  */
 public class FLNpageController {
+
     private BorderPane rootBorder;
     private SplitPane rootSplit;
     private SplitPane splitPane;
@@ -41,35 +42,32 @@ public class FLNpageController {
     private Button bModifier;
     @FXML
     private Button bValider;
-    
+
     public static TextField focus;
-    
-    public void setFLNpageController(BorderPane rootBorder,SplitPane rootSplit){
+
+    public void setFLNpageController(BorderPane rootBorder, SplitPane rootSplit) {
         this.rootBorder = rootBorder;
         this.rootSplit = rootSplit;
     }
-    
+
     @FXML
-    public void handleEntererListe(){
-        try {                    
+    public void handleEntererListe() {
+        try {
             FXMLLoader loaderCenter = new FXMLLoader();
             loaderCenter.setLocation(StillStandFMS.class.getResource("/view/Liste.fxml"));
             AnchorPane FXMLViewCenter = (AnchorPane) loaderCenter.load();
 
             rootBorder.setCenter(FXMLViewCenter);
-            
+
             //charger listCheminController
-            ListCheminController controller = loaderCenter.getController();            
-            /*
-            ListChemin: 4 attributs
-            from: depart
-            dest: arrive
-            dist: distance
-            radio: lu numero de radio
-            */
-            controller.setList("from1","dest1","dist1","radio1");
-            controller.setList("from2","dest2","dist2","radio2");
-            controller.setList("from3","dest3","dist3","radio3");
+            ListCheminController controller = loaderCenter.getController();
+
+            controller.setList("Gbessia International Airport (GUINEA)",
+                    "Léopold-Sédar-Senghor Airport (SENEGAL)", "1200 KM", "1505");
+            controller.setList("Léopold-Sédar-Senghor Airport (SENEGAL)",
+                    "Mohammed V - Casablanca Airport (MAROC)", "2113 KM", "1505");
+            controller.setList("Mohammed V - Casablanca Airport (MAROC)",
+                    this.dest.getText(), "2725 KM", this.radio.getText());
             // afficher des donnee sur la TableView
             controller.afficherList();
 
@@ -77,123 +75,111 @@ public class FLNpageController {
             Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    /*
-            charger la page clavier sur le split en bas
-            */
+
+    /**
+     * Charger la page clavier sur le split en bas
+     */
     @FXML
-    public void handleAfficherLeCheminEnCourant(){
+    public void handleAfficherLeCheminEnCourant() {
         try {
-            
+
             FXMLLoader loaderClavier = new FXMLLoader();
-            loaderClavier.setLocation(StillStandFMS.class.getResource("../view/Clavier.fxml"));                            
+            loaderClavier.setLocation(StillStandFMS.class.getResource("../view/Clavier.fxml"));
             AnchorPane FXMLViewClavier = (AnchorPane) loaderClavier.load();
             rootSplit.getItems().set(1, FXMLViewClavier);
 
         } catch (IOException ex) {
             Logger.getLogger(FLNpageController.class.getName()).log(Level.SEVERE, null, ex);
-        }            
-    }     
-    /*
-            charger la page listEncourant sur le split en bas
-            */
+        }
+    }
+
+    /**
+     * charger la page listEncourant sur le split en bas
+     */
     @FXML
-    public void apuyerBtValide(){  
+    public void apuyerBtValide() {
         this.bModifier.setDisable(false);
         this.bValider.setDisable(true);
         this.dest.setEditable(false);
         this.dist.setEditable(false);
         this.radio.setEditable(false);
-        
+
         try {
-            FXMLLoader  loaderChemins = new FXMLLoader();
-            
+            FXMLLoader loaderChemins = new FXMLLoader();
+
             loaderChemins.setLocation(StillStandFMS.class.getResource("../view/FLNpageList.fxml"));
             AnchorPane FXMLViewClavier = (AnchorPane) loaderChemins.load();
             rootSplit.getItems().set(1, FXMLViewClavier);
-        
-        
-        //charger listCheminController
+
+            //charger listCheminController
             FLNpageListController controller = loaderChemins.getController();
-            /*
-            ListChemin: 4 attributs
-            from: depart
-            dest: arrive
-            dist: distance
-            radio: lu numero de radio
-            */
+
             controller.setList("Gbessia International Airport (GUINEA)",
-                    "Léopold-Sédar-Senghor Airport (SENEGAL)","1200","1505");
+                    "Léopold-Sédar-Senghor Airport (SENEGAL)", "1200 KM", "1505");
             controller.setList("Léopold-Sédar-Senghor Airport (SENEGAL)",
-                    "Mohammed V - Casablanca Airport (MAROC)", "1200","1505");
+                    "Mohammed V - Casablanca Airport (MAROC)", "2113 KM", "1505");
             controller.setList("Mohammed V - Casablanca Airport (MAROC)",
-                    this.dest.getText(),"1200",this.radio.getText());
+                    this.dest.getText(), "2725 KM", this.radio.getText());
             // afficher des donnee sur la TableView
             controller.afficherList();
-            } catch (IOException ex) {
+        } catch (IOException ex) {
             Logger.getLogger(FLNpageController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
-    
-    
+
     @FXML
-    public void chercherChenim(){
-        if(this.numch.getText().equals("L001")){
+    public void chercherChenim() {
+        if (this.numch.getText().equals("L001")) {
             this.from.setText("Gbessia International Airport (GUINEA)");
             this.dest.setText("Paris Charles-de-Gaulle Airport (FRANCE)");
             this.dist.setText("9100 KM");
             this.radio.setText("1505");
         }
-        
+
     }
-    
+
     @FXML
-    public void activerModification(){
+    public void activerModification() {
         this.bModifier.setDisable(true);
         this.bValider.setDisable(false);
         this.dest.setEditable(true);
         this.dist.setEditable(true);
         this.radio.setEditable(true);
     }
-    
-    
+
     /**
-     * Cette fonctions permet de faire la saisit dans le champs lorsqu'on click sur un boutton
-     * @param event 
-     * @return  String: la lettre appuyer
+     * Cette fonctions permet de faire la saisit dans le champs lorsqu'on click
+     * sur un boutton
+     *
+     * @param event
+     * @return String: la lettre appuyer
      */
-    @FXML 
-    public void handlerRemplirChamp(MouseEvent event){
-        
+    @FXML
+    public void handlerRemplirChamp(MouseEvent event) {
         Button boutton = (Button) event.getSource();
-        System.out.println("handlerRemplirChamp "+event.getSource()+" || "+boutton.getText());
-        focus.setText(focus.getText()+boutton.getText());
-        
-       // if(this.dest.isFocused()){
-       /*if(dest==null)
-            System.out.println("null");*/
-            //this.dest.setText(this.);
-        //}
+        focus.setText(focus.getText() + boutton.getText());
     }
-    @FXML 
-    public void handlerClickChamp(MouseEvent event){
-        
+
+    @FXML
+    public void handlerClickChamp(MouseEvent event) {
+
         TextField text = (TextField) event.getSource();
-        focus=null;
+        focus = null;
         focus = text;
-        
-        System.out.println("handlerClick "+text);
-        System.out.println("handlerClickChamp "+text.getId());
+
+        System.out.println("handlerClick " + text);
+        System.out.println("handlerClickChamp " + text.getId());
 
         try {
-            
+
             FXMLLoader loaderClavier = new FXMLLoader();
-            loaderClavier.setLocation(StillStandFMS.class.getResource("../view/Clavier.fxml"));                            
+            loaderClavier.setLocation(StillStandFMS.class.getResource("../view/Clavier.fxml"));
             AnchorPane FXMLViewClavier = (AnchorPane) loaderClavier.load();
             rootSplit.getItems().set(1, FXMLViewClavier);
 
         } catch (IOException ex) {
             Logger.getLogger(FLNpageController.class.getName()).log(Level.SEVERE, null, ex);
-        }  
+        }
     }
 }
