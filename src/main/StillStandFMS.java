@@ -32,8 +32,9 @@ public class StillStandFMS extends Application {
     public void start(Stage primaryStage) {
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         this.primaryStage = primaryStage;
-        this.primaryStage.setHeight(screenSize.getHeight());
-        this.primaryStage.setWidth(screenSize.getWidth());
+        //this.primaryStage.setHeight(screenSize.getHeight());
+        //this.primaryStage.setWidth(screenSize.getWidth());
+        this.primaryStage.setFullScreen(true);        
         this.primaryStage.setTitle("MCDU"); 
 
         initRootLayout();
