@@ -175,15 +175,17 @@ public class FLNpageController {
             //this.dest.setText(this.);
         //}
     }
+    /*
+            charger la page clavier sur le split en bas
+            */
     @FXML 
     public void handlerClickChamp(MouseEvent event){
         
         TextField text = (TextField) event.getSource();
         focus=null;
         focus = text;
-        
-        System.out.println("handlerClick "+text);
-        System.out.println("handlerClickChamp "+text.getId());
+        System.out.println("handlerClick "+text.getLength());
+        System.out.println("handlerClick "+text.getCaretPosition());
 
         try {
             
