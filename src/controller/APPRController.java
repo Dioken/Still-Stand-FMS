@@ -23,6 +23,7 @@ import main.StillStandFMS;
 public class APPRController {
     @FXML
     private Button boutonFLNPAGE;
+    
     private BorderPane rootBorder;
     private SplitPane rootSplit;
     FXMLLoader loaderCenter = null;

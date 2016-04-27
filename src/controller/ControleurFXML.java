@@ -32,13 +32,11 @@ public class ControleurFXML implements Initializable {
         // TODO
     }    
     
-    @FXML
     public void handleButtonActionAlphaKeyBoard(ActionEvent event){
         System.out.println("Test ControleurFXML");
         controllerClavier.handleButtonActionAlphaKeyBoard(event);
     }
     
-    @FXML
     public void handleButtonActionNumeriqueKeyBoard(ActionEvent event) {
         controllerClavier.handleButtonActionNumeriqueKeyBoard(event);
     }

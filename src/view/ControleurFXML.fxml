@@ -6,7 +6,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControleurFXML">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ControleurFXMLController">
     <fx:include source="Clavier.fxml" fx:id="controllerClavier" />
 
     <fx:include source="FLNpage.fxml" fx:id="controllerFlnPage" />
@@ -16,6 +16,5 @@
     <fx:include source="FLNpageList.fxml" fx:id="controllerFlnPageList"/>
     
     <fx:include source="FLNpageSplit.fxml" fx:id="controllerFlnPageSplit"/>
-    
-  
+
 </AnchorPane>
