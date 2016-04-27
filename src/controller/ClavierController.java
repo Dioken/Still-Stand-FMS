@@ -226,6 +226,7 @@ public class ClavierController implements Initializable {
             focus.setText(textAvant + textApres);
         } else if (((Button) event.getSource()).getText().equals("CLR")) {
             focus.setText(" ");
+            cursorPosition=0;
             //focus.deleteText(range);
         } else if (((Button) event.getSource()).getText().equals("SP")) {
             String textAvant = focus.getText().substring(0, cursorPosition);
