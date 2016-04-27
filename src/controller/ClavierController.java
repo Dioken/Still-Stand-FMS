@@ -52,12 +52,7 @@ public class ClavierController implements Initializable {
 
     @FXML
     public void handleButtonActionAlphaKeyBoard(ActionEvent event) {
-        System.out.println(focus.getText());
-        
-        String textAvant=focus.getText().substring(0,cursorPosition);
-        String textApres=focus.getText().substring(cursorPosition,focus.getLength());
-        cursorPosition++;
-        focus.setText(textAvant+((Button)event.getSource()).getText()+textApres);
+        focusFonction(event);
 
         // Button was clicked, do something...
       
@@ -78,12 +73,8 @@ public class ClavierController implements Initializable {
     
     @FXML
     public void handleButtonActionNumeriqueKeyBoard(ActionEvent event) {
-        System.out.println(focus.getText());
         
-        String textAvant=focus.getText().substring(0,cursorPosition);
-        String textApres=focus.getText().substring(cursorPosition,focus.getLength());
-        cursorPosition++;
-        focus.setText(textAvant+((Button)event.getSource()).getText()+textApres);
+        focusFonction(event);
        
         List<Button> listButtonProche = adpaterNumeriqueKeyboard((Button) event.getSource());       
         
@@ -157,6 +148,28 @@ public class ClavierController implements Initializable {
     private boolean effetBord(int x,int y,int maxX,int maxY){
          return ((x>=0 && x<=maxX) && (y>=0 && y<=maxY));
     }	
+    
+    public void focusFonction(ActionEvent event){
+        
+        if(((Button)event.getSource()).getText().equals("DEL")){
+            String textAvant=focus.getText().substring(0,cursorPosition-1);
+            String textApres=focus.getText().substring(cursorPosition,focus.getLength());
+            cursorPosition--;
+            focus.setText(textAvant+textApres);
+        }else if(((Button)event.getSource()).getText().equals("CLR")){
+            focus.setText("");
+        }else if(((Button)event.getSource()).getText().equals("SP")){
+            String textAvant=focus.getText().substring(0,cursorPosition);
+            String textApres=focus.getText().substring(cursorPosition,focus.getLength());
+            cursorPosition++;
+            focus.setText(textAvant+" "+textApres);
+        }else{
+            String textAvant=focus.getText().substring(0,cursorPosition);
+            String textApres=focus.getText().substring(cursorPosition,focus.getLength());
+            cursorPosition++;
+            focus.setText(textAvant+((Button)event.getSource()).getText()+textApres);
+        }
+    }
 
 
 }
