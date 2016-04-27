@@ -63,12 +63,22 @@ public class FPLNpageController {
             //charger listCheminController
             ListCheminController controller = loaderCenter.getController();
 
-            controller.setList("Gbessia International Airport (GUINEA)",
-                    "Léopold-Sédar-Senghor Airport (SENEGAL)", "1200 KM", "1505");
-            controller.setList("Léopold-Sédar-Senghor Airport (SENEGAL)",
-                    "Mohammed V - Casablanca Airport (MAROC)", "2113 KM", "1505");
-            controller.setList("Mohammed V - Casablanca Airport (MAROC)",
-                    this.dest.getText(), "2725 KM", this.radio.getText());
+            if (this.from.getText().equals("Gbessia International Airport (GUINEA)")) {
+                controller.setList("Gbessia International Airport (GUINEA)",
+                        "Léopold-Sédar-Senghor Airport (SENEGAL)", "1200 KM", "1505");
+                controller.setList("Léopold-Sédar-Senghor Airport (SENEGAL)",
+                        "Mohammed V - Casablanca Airport (MAROC)", "2113 KM", "1505");
+                controller.setList("Mohammed V - Casablanca Airport (MAROC)",
+                        this.dest.getText(), "2725 KM", this.radio.getText());
+            }
+
+            if (this.from.getText().equals("London Gatwick International Airport (ENGLAND)")) {
+                controller.setList("London Gatwick International Airport (ENGLAND)",
+                        "Ciudad de mexico International Airport (MEXICO)", "8200 KM", "0007");
+                controller.setList("Ciudad de mexico International Airport (MEXICO)",
+                        this.dest.getText(), "7700 KM", this.radio.getText());
+            }
+
             // afficher des donnee sur la TableView
             controller.afficherList();
 
@@ -98,12 +108,22 @@ public class FPLNpageController {
             //charger listCheminController
             FPLNpageListController controller = loaderChemins.getController();
 
-            controller.setList("Gbessia International Airport (GUINEA)",
-                    "Léopold-Sédar-Senghor Airport (SENEGAL)", "1200 KM", "1505");
-            controller.setList("Léopold-Sédar-Senghor Airport (SENEGAL)",
-                    "Mohammed V - Casablanca Airport (MAROC)", "2113 KM", "1505");
-            controller.setList("Mohammed V - Casablanca Airport (MAROC)",
-                    this.dest.getText(), "2725 KM", this.radio.getText());
+            if (this.from.getText().equals("Gbessia International Airport (GUINEA)")) {
+                controller.setList("Gbessia International Airport (GUINEA)",
+                        "Léopold-Sédar-Senghor Airport (SENEGAL)", "1200 KM", "1505");
+                controller.setList("Léopold-Sédar-Senghor Airport (SENEGAL)",
+                        "Mohammed V - Casablanca Airport (MAROC)", "2113 KM", "1505");
+                controller.setList("Mohammed V - Casablanca Airport (MAROC)",
+                        this.dest.getText(), "2725 KM", this.radio.getText());
+            }
+
+            if (this.from.getText().equals("London Gatwick International Airport (ENGLAND)")) {
+                controller.setList("London Gatwick International Airport (ENGLAND)",
+                        "Ciudad de mexico International Airport (MEXICO)", "8200 KM", "0007");
+                controller.setList("Ciudad de mexico International Airport (MEXICO)",
+                        this.dest.getText(), "7700 KM", this.radio.getText());
+            }
+
             // afficher des donnee sur la TableView
             controller.afficherList();
         } catch (IOException ex) {
@@ -119,6 +139,13 @@ public class FPLNpageController {
             this.dest.setText("Paris Charles-de-Gaulle Airport (FRANCE)");
             this.dist.setText("9100 KM");
             this.radio.setText("1505");
+        }
+
+        if (this.numch.getText().equals("L007")) {
+            this.from.setText("London Gatwick International Airport (ENGLAND)");
+            this.dest.setText("Léonard-de-Vinci International Airport (ITALIA)");
+            this.dist.setText("15700 KM");
+            this.radio.setText("0007");
         }
 
     }
