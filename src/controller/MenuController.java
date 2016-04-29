@@ -111,7 +111,6 @@ public class MenuController implements Initializable {
                 break;
             }
         }
-        
     }    
     
 
@@ -175,8 +174,7 @@ public class MenuController implements Initializable {
                 }
                 break;
             }
-        }
-           
+        }           
     }
 
     @FXML
