@@ -51,6 +51,9 @@ public class FPLNpageController {
         this.rootSplit = rootSplit;
     }
 
+    /**
+     * Permet de remplir les données sur la page Liste
+     */
     @FXML
     public void handleEntererListe() {
         try {
@@ -62,21 +65,19 @@ public class FPLNpageController {
 
             //charger listCheminController
             ListCheminController controller = loaderCenter.getController();
-
+            
             if (this.from.getText().equals("Gbessia International Airport (GUINEA)")) {
                 controller.setList("Gbessia International Airport (GUINEA)",
-                        "Léopold-Sédar-Senghor Airport (SENEGAL)", "1200 KM", "1505");
-                controller.setList("Léopold-Sédar-Senghor Airport (SENEGAL)",
-                        "Mohammed V - Casablanca Airport (MAROC)", "2113 KM", "1505");
-                controller.setList("Mohammed V - Casablanca Airport (MAROC)",
-                        this.dest.getText(), "2725 KM", this.radio.getText());
+                        this.dest.getText(), "79100 KM", this.radio.getText());
+                controller.setList("London Gatwick International Airport (ENGLAND)",
+                        "Léonard-de-Vinci International Airport (ITALIA)", "15700 KM", "0007");
             }
 
             if (this.from.getText().equals("London Gatwick International Airport (ENGLAND)")) {
                 controller.setList("London Gatwick International Airport (ENGLAND)",
-                        "Ciudad de mexico International Airport (MEXICO)", "8200 KM", "0007");
-                controller.setList("Ciudad de mexico International Airport (MEXICO)",
-                        this.dest.getText(), "7700 KM", this.radio.getText());
+                        this.dest.getText(), "15700 KM", this.radio.getText());
+                controller.setList("Gbessia International Airport (GUINEA)",
+                        "Paris Charles-de-Gaulle Airport (FRANCE)", "9100 KM", "1505");
             }
 
             // afficher des donnee sur la TableView
@@ -88,7 +89,7 @@ public class FPLNpageController {
     }
 
     /**
-     * charger la page listEncourant sur le split en bas
+     * Charger la page listEncourant sur le split en bas
      */
     @FXML
     public void apuyerBtValide() {
@@ -114,14 +115,14 @@ public class FPLNpageController {
                 controller.setList("Léopold-Sédar-Senghor Airport (SENEGAL)",
                         "Mohammed V - Casablanca Airport (MAROC)", "2113 KM", "1505");
                 controller.setList("Mohammed V - Casablanca Airport (MAROC)",
-                        this.dest.getText(), "2725 KM", this.radio.getText());
+                        this.dest.getText(), "7700 KM", this.radio.getText());
             }
 
             if (this.from.getText().equals("London Gatwick International Airport (ENGLAND)")) {
                 controller.setList("London Gatwick International Airport (ENGLAND)",
                         "Ciudad de mexico International Airport (MEXICO)", "8200 KM", "0007");
                 controller.setList("Ciudad de mexico International Airport (MEXICO)",
-                        this.dest.getText(), "7700 KM", this.radio.getText());
+                        this.dest.getText(), "2725 KM", this.radio.getText());
             }
 
             // afficher des donnee sur la TableView
@@ -132,13 +133,16 @@ public class FPLNpageController {
 
     }
 
+    /**
+     * Affiche le chemin complet à partir du numéro de chemin
+     */
     @FXML
     public void chercherChenim() {
         if (this.numch.getText().equals("L001")) {
             this.from.setText("Gbessia International Airport (GUINEA)");
             this.dest.setText("Paris Charles-de-Gaulle Airport (FRANCE)");
             this.dist.setText("9100 KM");
-            this.radio.setText("1505");
+            this.radio.setText("1505"); 
         }
 
         if (this.numch.getText().equals("L007")) {
@@ -147,9 +151,11 @@ public class FPLNpageController {
             this.dist.setText("15700 KM");
             this.radio.setText("0007");
         }
-
     }
 
+    /**
+     * Quand on appue sur le bouton modifier
+     */
     @FXML
     public void activerModification() {
         this.bModifier.setDisable(true);
@@ -172,8 +178,9 @@ public class FPLNpageController {
         focus.setText(focus.getText() + boutton.getText());
     }
 
-    /*
-            charger la page clavier sur le split en bas
+    /**
+     * Charger la page clavier sur le split en bas
+     * @param event evenement
      */
     @FXML
     public void handlerClickChamp(MouseEvent event) {
@@ -186,12 +193,10 @@ public class FPLNpageController {
         focus = text;
 
         try {
-
             FXMLLoader loaderClavier = new FXMLLoader();
             loaderClavier.setLocation(StillStandFMS.class.getResource("/view/Clavier.fxml"));
             AnchorPane FXMLViewClavier = (AnchorPane) loaderClavier.load();
             rootSplit.getItems().set(1, FXMLViewClavier);
-
         } catch (IOException ex) {
             Logger.getLogger(FPLNpageController.class.getName()).log(Level.SEVERE, null, ex);
         }
