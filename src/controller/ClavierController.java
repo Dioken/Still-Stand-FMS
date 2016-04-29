@@ -163,7 +163,7 @@ public class ClavierController implements Initializable {
                 }
             }
         }
-
+        
         return listButtonProche;
     }
 
@@ -208,16 +208,19 @@ public class ClavierController implements Initializable {
         if (((Button) event.getSource()).getText().equals("DEL")) {
             String textAvant = "";
 
-            if (cursorPosition >= 1) {
-                textAvant = focus.getText().substring(0, cursorPosition - 1);
-            }
+            textAvant = focus.getText().substring(0, cursorPosition - 1);
+           
             String textApres = focus.getText().substring(cursorPosition, focus.getLength());
             cursorPosition--;
+            
+            if (cursorPosition < 0) {
+                cursorPosition = 0;
+            }
+            
             focus.setText(textAvant + textApres);
         } else if (((Button) event.getSource()).getText().equals("CLR")) {
             focus.setText(" ");
             cursorPosition = 0;
-            //focus.deleteText(range);
         } else if (((Button) event.getSource()).getText().equals("SP")) {
             String textAvant = focus.getText().substring(0, cursorPosition);
             String textApres = focus.getText().substring(cursorPosition, focus.getLength());
