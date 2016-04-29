@@ -47,10 +47,12 @@ public class FPLNpageController {
 
     public static TextField focus;
     public static int cursorPosition;
+    public static int modification;
 
     public void setFLNpageController(BorderPane rootBorder, SplitPane rootSplit) {
         this.rootBorder = rootBorder;
         this.rootSplit = rootSplit;
+        this.modification = 0;
     }
 
     /**
@@ -101,6 +103,7 @@ public class FPLNpageController {
         this.dest.setEditable(false);
         this.dist.setEditable(false);
         this.radio.setEditable(false);
+        this.modification = 0;
 
         try {
             FXMLLoader loaderChemins = new FXMLLoader();
@@ -167,6 +170,8 @@ public class FPLNpageController {
         this.dest.setEditable(true);
         this.dist.setEditable(true);
         this.radio.setEditable(true);
+       
+        this.modification = 1;
     }
 
     /**
@@ -220,5 +225,7 @@ public class FPLNpageController {
         this.dest.setText("");
         this.dist.setText("");
         this.radio.setText("");
+        
+        this.modification = 0;
     }
 }

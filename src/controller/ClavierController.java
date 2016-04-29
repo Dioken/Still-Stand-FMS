@@ -205,32 +205,37 @@ public class ClavierController implements Initializable {
 
     public void focusFonction(ActionEvent event) {
 
-        if (((Button) event.getSource()).getText().equals("DEL")) {
-            String textAvant = "";
-
-            textAvant = focus.getText().substring(0, cursorPosition - 1);
-           
-            String textApres = focus.getText().substring(cursorPosition, focus.getLength());
-            cursorPosition--;
-            
-            if (cursorPosition < 0) {
-                cursorPosition = 0;
+        String textAvant;
+        String textApres;
+        
+        if(FPLNpageController.modification == 1){
+            switch (((Button) event.getSource()).getText()) {
+                case "DEL":
+                        textAvant = "";
+                        textAvant = focus.getText().substring(0, cursorPosition - 1);
+                        textApres = focus.getText().substring(cursorPosition, focus.getLength());
+                        cursorPosition--;
+                        if (cursorPosition < 0) {
+                            cursorPosition = 0;
+                        }       focus.setText(textAvant + textApres);
+                        break;
+                case "CLR":
+                    focus.setText(" ");
+                    cursorPosition = 0;
+                    break;
+                case "SP":
+                        textAvant = focus.getText().substring(0, cursorPosition);
+                        textApres = focus.getText().substring(cursorPosition, focus.getLength());
+                        cursorPosition++;
+                        focus.setText(textAvant + " " + textApres);
+                        break;
+                default:
+                        textAvant = focus.getText().substring(0, cursorPosition);
+                        textApres = focus.getText().substring(cursorPosition, focus.getLength());
+                        cursorPosition++;
+                        focus.setText(textAvant + ((Button) event.getSource()).getText() + textApres);
+                        break;
             }
-            
-            focus.setText(textAvant + textApres);
-        } else if (((Button) event.getSource()).getText().equals("CLR")) {
-            focus.setText(" ");
-            cursorPosition = 0;
-        } else if (((Button) event.getSource()).getText().equals("SP")) {
-            String textAvant = focus.getText().substring(0, cursorPosition);
-            String textApres = focus.getText().substring(cursorPosition, focus.getLength());
-            cursorPosition++;
-            focus.setText(textAvant + " " + textApres);
-        } else {
-            String textAvant = focus.getText().substring(0, cursorPosition);
-            String textApres = focus.getText().substring(cursorPosition, focus.getLength());
-            cursorPosition++;
-            focus.setText(textAvant + ((Button) event.getSource()).getText() + textApres);
         }
     }
 }
