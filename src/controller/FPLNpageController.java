@@ -42,6 +42,8 @@ public class FPLNpageController {
     private Button bModifier;
     @FXML
     private Button bValider;
+    @FXML
+    private Button bAnnuler;
 
     public static TextField focus;
     public static int cursorPosition;
@@ -95,6 +97,7 @@ public class FPLNpageController {
     public void apuyerBtValide() {
         this.bModifier.setDisable(false);
         this.bValider.setDisable(true);
+        this.bAnnuler.setDisable(true);
         this.dest.setEditable(false);
         this.dist.setEditable(false);
         this.radio.setEditable(false);
@@ -160,6 +163,7 @@ public class FPLNpageController {
     public void activerModification() {
         this.bModifier.setDisable(true);
         this.bValider.setDisable(false);
+        this.bAnnuler.setDisable(false);
         this.dest.setEditable(true);
         this.dist.setEditable(true);
         this.radio.setEditable(true);
@@ -203,14 +207,18 @@ public class FPLNpageController {
     }
     
     @FXML
-    public void handlerClickInserer() {
-        try {
-            FXMLLoader loaderClavier = new FXMLLoader();
-            loaderClavier.setLocation(StillStandFMS.class.getResource("/view/Clavier.fxml"));
-            AnchorPane FXMLViewClavier = (AnchorPane) loaderClavier.load();
-            rootSplit.getItems().set(1, FXMLViewClavier);
-        } catch (IOException ex) {
-            Logger.getLogger(FPLNpageController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    public void handlerClickAnnuler() {
+        this.bModifier.setDisable(false);
+        this.bValider.setDisable(true);
+        this.bAnnuler.setDisable(true);
+        this.dest.setEditable(false);
+        this.dist.setEditable(false);
+        this.radio.setEditable(false);
+        
+        this.numch.setText("");
+        this.from.setText("");
+        this.dest.setText("");
+        this.dist.setText("");
+        this.radio.setText("");
     }
 }

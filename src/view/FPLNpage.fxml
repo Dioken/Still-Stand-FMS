@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FPLNpageController">
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FPLNpageController">
    <children>
       <GridPane alignment="CENTER" layoutX="-7.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-7.0" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="0.0">
         <columnConstraints>
@@ -37,7 +37,7 @@
             <TextField fx:id="dest" editable="false" onMouseClicked="#handlerClickChamp" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <TextField fx:id="dist" editable="false" onMouseClicked="#handlerClickChamp" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <Button fx:id="bModifier" mnemonicParsing="false" onAction="#activerModification" text="MODIFIER" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-            <Button mnemonicParsing="false" onAction="#handlerClickInserer" prefHeight="25.0" prefWidth="70.0" text="INSERER" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+            <Button fx:id="bAnnuler" disable="true" mnemonicParsing="false" onAction="#handlerClickAnnuler" prefHeight="25.0" prefWidth="70.0" text="ANNULER" GridPane.columnIndex="3" GridPane.rowIndex="4" />
             <Button fx:id="bValider" disable="true" mnemonicParsing="false" onAction="#apuyerBtValide" prefHeight="25.0" prefWidth="70.0" text="VALIDER" GridPane.columnIndex="3" GridPane.rowIndex="3" />
             <Label text="RADIO" GridPane.rowIndex="5" />
             <TextField fx:id="radio" editable="false" onMouseClicked="#handlerClickChamp" GridPane.columnIndex="1" GridPane.rowIndex="5" />
