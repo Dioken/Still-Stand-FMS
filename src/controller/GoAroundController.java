@@ -51,7 +51,7 @@ public class GoAroundController {
                     declencehrFLNPage();
                     secondCliked = false;
                 } else {
-                    DeclencherAction.declencherAction2(boutoonFLNPage, 100, 70);
+                    DeclencherAction.declencherAction2(boutoonFLNPage, 150, 110);
                     secondCliked = true;
                 }
                 break;
@@ -66,7 +66,7 @@ public class GoAroundController {
                     declencehrFLNPage();
                     secondCliked = false;
                 } else {
-                    DeclencherAction.declencherAction2(boutoonFLNPage, 100, 70);
+                    DeclencherAction.declencherAction2(boutoonFLNPage, 150, 110);
                     secondCliked = true;
                 }
                 break;

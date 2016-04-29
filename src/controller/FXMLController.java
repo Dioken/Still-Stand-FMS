@@ -46,15 +46,19 @@ public class FXMLController {
         switch (MenuController.etat){
             case Normal:{
                 MenuController.etat = Etat.Normal;
+                firstActionGA = false;
+                firstActionAPPR = false;
+                firstActionMenu = false;
                 declencherAPPR();
                 break;
             }
             case Vibration:{
                 MenuController.etat = Etat.VibAction;
                 firstActionAPPR = true;                 
-                DeclencherAction.declencherAction2(bouttonAPPR, 100, 70);
-                DeclencherAction.declencherAction2(bouttonGA, 61.0, 23.0);
-                DeclencherAction.declencherAction2(bouttonMenu, 61.0, 23.0);
+                DeclencherAction.declencherAction2(bouttonAPPR, 150, 110);
+                DeclencherAction.declencherAction2(bouttonGA, 83, 43);
+                DeclencherAction.declencherAction2(bouttonMenu, 83, 43);
+                break;
             }
             case Lumiere:{
                 MenuController.etat = Etat.Lumiere;
@@ -64,9 +68,9 @@ public class FXMLController {
             case VibLum:{
                 MenuController.etat = Etat.VibLumAction;
                 firstActionAPPR = true;                 
-                DeclencherAction.declencherAction2(bouttonAPPR, 100, 70);
-                DeclencherAction.declencherAction2(bouttonGA, 61.0, 23.0);
-                DeclencherAction.declencherAction2(bouttonMenu, 61.0, 23.0);
+                DeclencherAction.declencherAction2(bouttonAPPR, 150, 110);
+                DeclencherAction.declencherAction2(bouttonGA, 83, 43);
+                DeclencherAction.declencherAction2(bouttonMenu, 83, 43);
                 break;
             }
             
@@ -76,13 +80,13 @@ public class FXMLController {
                     firstActionAPPR = true;
                     firstActionGA = false;
                     firstActionMenu = false;
-                    DeclencherAction.declencherAction2(bouttonAPPR, 100, 70);
-                    DeclencherAction.declencherAction2(bouttonGA, 61.0, 23.0);
-                    DeclencherAction.declencherAction2(bouttonMenu, 61.0, 23.0);
+                    DeclencherAction.declencherAction2(bouttonAPPR, 150, 110);
+                    DeclencherAction.declencherAction2(bouttonGA, 83, 43);
+                    DeclencherAction.declencherAction2(bouttonMenu, 83, 43);
                 }else{
                     MenuController.etat = Etat.Vibration;
                     declencherAPPR();
-                    DeclencherAction.declencherAction2(bouttonAPPR, 61.0, 23.0);
+                    DeclencherAction.declencherAction2(bouttonAPPR, 83, 43);
                     firstActionAPPR = false;
                 }
                 break;
@@ -93,13 +97,13 @@ public class FXMLController {
                     firstActionAPPR = true;
                     firstActionGA = false;
                     firstActionMenu = false;
-                    DeclencherAction.declencherAction2(bouttonAPPR, 100, 70);
-                    DeclencherAction.declencherAction2(bouttonGA, 61.0, 23.0);
-                    DeclencherAction.declencherAction2(bouttonMenu, 61.0, 23.0);
+                    DeclencherAction.declencherAction2(bouttonAPPR, 150, 110);
+                    DeclencherAction.declencherAction2(bouttonGA, 83, 43);
+                    DeclencherAction.declencherAction2(bouttonMenu, 83, 43);
                 }else{
                     MenuController.etat = Etat.VibLum;
                     declencherAPPR();
-                    DeclencherAction.declencherAction2(bouttonAPPR, 61.0, 23.0);
+                    DeclencherAction.declencherAction2(bouttonAPPR, 83, 43);
                     firstActionAPPR = false;
                 }                
                 break;
@@ -119,9 +123,9 @@ public class FXMLController {
             case Vibration:{
                 MenuController.etat = Etat.VibAction;
                 firstActionGA = true;
-                DeclencherAction.declencherAction2(bouttonGA, 100, 70);
-                DeclencherAction.declencherAction2(bouttonAPPR, 61.0, 23.0);
-                DeclencherAction.declencherAction2(bouttonMenu, 61.0, 23.0);  
+                DeclencherAction.declencherAction2(bouttonGA, 150, 110);
+                DeclencherAction.declencherAction2(bouttonAPPR, 83, 43);
+                DeclencherAction.declencherAction2(bouttonMenu, 83, 43);  
                 break;
             }
             case Lumiere:{
@@ -132,9 +136,9 @@ public class FXMLController {
             case VibLum:{
                 MenuController.etat = Etat.VibLumAction;
                 firstActionGA = true;
-                DeclencherAction.declencherAction2(bouttonGA, 100, 70);
-                DeclencherAction.declencherAction2(bouttonAPPR, 61.0, 23.0);
-                DeclencherAction.declencherAction2(bouttonMenu, 61.0, 23.0);
+                DeclencherAction.declencherAction2(bouttonGA, 150, 110);
+                DeclencherAction.declencherAction2(bouttonAPPR, 83, 43);
+                DeclencherAction.declencherAction2(bouttonMenu, 83, 43);
                 break;
             }
             
@@ -144,13 +148,13 @@ public class FXMLController {
                     firstActionGA = true;
                     firstActionAPPR = false;
                     firstActionMenu = false;
-                    DeclencherAction.declencherAction2(bouttonGA, 100, 70);
-                    DeclencherAction.declencherAction2(bouttonAPPR, 61.0, 23.0);
-                    DeclencherAction.declencherAction2(bouttonMenu, 61.0, 23.0);
+                    DeclencherAction.declencherAction2(bouttonGA, 150, 110);
+                    DeclencherAction.declencherAction2(bouttonAPPR, 83, 43);
+                    DeclencherAction.declencherAction2(bouttonMenu, 83, 43);
                 }else{
                     MenuController.etat = Etat.Vibration;
                     declencherGA();
-                    DeclencherAction.declencherAction2(bouttonGA, 61.0, 23.0);
+                    DeclencherAction.declencherAction2(bouttonGA, 83, 43);
                     firstActionGA = false;
                 }
                 break;
@@ -161,19 +165,19 @@ public class FXMLController {
                     firstActionGA = true;
                     firstActionAPPR = false;
                     firstActionMenu = false;
-                    DeclencherAction.declencherAction2(bouttonGA, 100, 70);
-                    DeclencherAction.declencherAction2(bouttonAPPR, 61.0, 23.0);
-                    DeclencherAction.declencherAction2(bouttonMenu, 61.0, 23.0);
+                    DeclencherAction.declencherAction2(bouttonGA, 150, 110);
+                    DeclencherAction.declencherAction2(bouttonAPPR, 83, 43);
+                    DeclencherAction.declencherAction2(bouttonMenu, 83, 43);
                 }else{
                     MenuController.etat = Etat.VibLum;
                     declencherGA();
-                    DeclencherAction.declencherAction2(bouttonGA, 61.0, 23.0);
+                    DeclencherAction.declencherAction2(bouttonGA, 83, 43);
                     firstActionGA = false;
                 }
                 break;
             }
         }
-        
+               
     }
     
     @FXML
@@ -187,9 +191,9 @@ public class FXMLController {
             case Vibration:{
                 MenuController.etat = Etat.VibAction;
                 firstActionMenu = true;
-                DeclencherAction.declencherAction2(bouttonMenu, 100, 70);
-                DeclencherAction.declencherAction2(bouttonAPPR, 61.0, 23.0);
-                DeclencherAction.declencherAction2(bouttonGA, 61.0, 23.0);  
+                DeclencherAction.declencherAction2(bouttonMenu, 150, 110);
+                DeclencherAction.declencherAction2(bouttonAPPR, 83, 43);
+                DeclencherAction.declencherAction2(bouttonGA, 83, 43);  
                  break;
             }
             case Lumiere:{
@@ -200,9 +204,9 @@ public class FXMLController {
             case VibLum:{
                 MenuController.etat = Etat.VibLumAction;
                 firstActionMenu = true;
-                DeclencherAction.declencherAction2(bouttonMenu, 100, 70);
-                DeclencherAction.declencherAction2(bouttonAPPR, 61.0, 23.0);
-                DeclencherAction.declencherAction2(bouttonGA, 61.0, 23.0);
+                DeclencherAction.declencherAction2(bouttonMenu, 150, 110);
+                DeclencherAction.declencherAction2(bouttonAPPR, 83, 43);
+                DeclencherAction.declencherAction2(bouttonGA, 83, 43);
                 break;
             }
             
@@ -212,13 +216,13 @@ public class FXMLController {
                     firstActionMenu = true;
                     firstActionGA = false;
                     firstActionAPPR = false;
-                    DeclencherAction.declencherAction2(bouttonMenu, 100, 70);
-                    DeclencherAction.declencherAction2(bouttonGA, 61.0, 23.0);
-                    DeclencherAction.declencherAction2(bouttonAPPR, 61.0, 23.0);
+                    DeclencherAction.declencherAction2(bouttonMenu, 150, 110);
+                    DeclencherAction.declencherAction2(bouttonGA, 83, 43);
+                    DeclencherAction.declencherAction2(bouttonAPPR, 83, 43);
                 }else{
                     MenuController.etat = Etat.Vibration;
                     declencherMenu();
-                    DeclencherAction.declencherAction2(bouttonMenu, 61.0, 23.0);
+                    DeclencherAction.declencherAction2(bouttonMenu, 83, 43);
                     firstActionMenu = false;
                 }
                 break;
@@ -229,13 +233,13 @@ public class FXMLController {
                     firstActionMenu = true;
                     firstActionGA = false;
                     firstActionAPPR = false;
-                    DeclencherAction.declencherAction2(bouttonMenu, 100, 70);
-                    DeclencherAction.declencherAction2(bouttonGA, 61.0, 23.0);
-                    DeclencherAction.declencherAction2(bouttonAPPR, 61.0, 23.0);
+                    DeclencherAction.declencherAction2(bouttonMenu, 150, 110);
+                    DeclencherAction.declencherAction2(bouttonGA, 83, 43);
+                    DeclencherAction.declencherAction2(bouttonAPPR, 83, 43);
                 }else{
                     MenuController.etat = Etat.VibLum;
                     declencherMenu();
-                    DeclencherAction.declencherAction2(bouttonMenu, 61.0, 23.0);
+                    DeclencherAction.declencherAction2(bouttonMenu, 83, 43);
                     firstActionMenu = false;
                 }
                 break;

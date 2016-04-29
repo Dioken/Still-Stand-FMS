@@ -48,7 +48,7 @@ public class APPRController {
                     declencherFLNPage();
                     secondCliked = false;
                 }else{
-                    DeclencherAction.declencherAction2(boutonFLNPAGE, 100, 70);
+                    DeclencherAction.declencherAction2(boutonFLNPAGE, 150, 110);
                     secondCliked = true;
                 }
                 break;
@@ -63,7 +63,7 @@ public class APPRController {
                     declencherFLNPage();
                     secondCliked = false;
                 }else{
-                    DeclencherAction.declencherAction2(boutonFLNPAGE, 100, 70);
+                    DeclencherAction.declencherAction2(boutonFLNPAGE, 150, 110);
                     secondCliked = true;
                 }
                 break;

@@ -126,8 +126,8 @@ public class MenuController implements Initializable {
             case Vibration:{
                 etat = Etat.VibAction;
                 firstActionAPP = true;
-                DeclencherAction.declencherAction2(boutonAPPR, 100, 70);
-                DeclencherAction.declencherAction2(boutonGA, 61.0, 23.0);
+                DeclencherAction.declencherAction2(boutonAPPR, 150, 110);
+                DeclencherAction.declencherAction2(boutonGA, 83, 43);
                 break;
             }
             case VibAction:{
@@ -135,13 +135,13 @@ public class MenuController implements Initializable {
                     etat = Etat.VibAction;
                     firstActionAPP = true;
                     firstActionGA = false;
-                    DeclencherAction.declencherAction2(boutonAPPR, 100, 70);
-                    DeclencherAction.declencherAction2(boutonGA, 61.0, 23.0);
+                    DeclencherAction.declencherAction2(boutonAPPR, 150, 110);
+                    DeclencherAction.declencherAction2(boutonGA, 83, 43);
                     
                 }else{
                     etat = Etat.Vibration;
                     executeDeclencheAPPR();
-                    DeclencherAction.declencherAction2(boutonAPPR, 61.0, 23.0);
+                    DeclencherAction.declencherAction2(boutonAPPR, 83, 43);
                     firstActionAPP = false;  
                 }                 
                 break;
@@ -154,8 +154,8 @@ public class MenuController implements Initializable {
             case VibLum:{
                 etat = Etat.VibLumAction;
                 firstActionAPP = true;
-                DeclencherAction.declencherAction2(boutonAPPR, 100, 70);
-                DeclencherAction.declencherAction2(boutonGA, 61.0, 23.0);
+                DeclencherAction.declencherAction2(boutonAPPR, 150, 110);
+                DeclencherAction.declencherAction2(boutonGA, 83, 43);
                 break;
             }
             case VibLumAction:{
@@ -163,13 +163,13 @@ public class MenuController implements Initializable {
                     etat = Etat.VibLumAction;
                     firstActionAPP = true;
                     firstActionGA = false;
-                    DeclencherAction.declencherAction2(boutonAPPR, 100, 70);
-                    DeclencherAction.declencherAction2(boutonGA, 61.0, 23.0);
+                    DeclencherAction.declencherAction2(boutonAPPR, 150, 110);
+                    DeclencherAction.declencherAction2(boutonGA, 83, 43);
                     
                 }else{
                     etat = Etat.VibLum;
                     executeDeclencheAPPR();
-                    DeclencherAction.declencherAction2(boutonAPPR, 61.0, 23.0);
+                    DeclencherAction.declencherAction2(boutonAPPR, 83, 43);
                     firstActionAPP = false;  
                 }
                 break;
@@ -188,8 +188,8 @@ public class MenuController implements Initializable {
             case Vibration:{
                 etat = Etat.VibAction;
                 firstActionGA = true;
-                DeclencherAction.declencherAction2(boutonGA, 100, 70);
-                DeclencherAction.declencherAction2(boutonAPPR, 61.0, 23.0);
+                DeclencherAction.declencherAction2(boutonGA, 150, 110);
+                DeclencherAction.declencherAction2(boutonAPPR, 83, 43);
                 break;
             }
             case Lumiere:{ 
@@ -200,8 +200,8 @@ public class MenuController implements Initializable {
             case VibLum:{ 
                 etat = Etat.VibLumAction;
                 firstActionGA = true;
-                DeclencherAction.declencherAction2(boutonGA, 100, 70);
-                DeclencherAction.declencherAction2(boutonAPPR, 61.0, 23.0);
+                DeclencherAction.declencherAction2(boutonGA, 150, 110);
+                DeclencherAction.declencherAction2(boutonAPPR, 83, 43);
                 break;
             }
             case VibAction:{
@@ -209,13 +209,13 @@ public class MenuController implements Initializable {
                     firstActionGA = true;
                     firstActionAPP = false;
                     etat = Etat.VibAction;
-                    DeclencherAction.declencherAction2(boutonGA, 100, 70);
-                    DeclencherAction.declencherAction2(boutonAPPR, 61.0, 23.0);
+                    DeclencherAction.declencherAction2(boutonGA, 150, 110);
+                    DeclencherAction.declencherAction2(boutonAPPR, 83, 43);
                 }else{
                     etat = Etat.Vibration;
                     firstActionGA = false;
                     executeDeclencheGA();
-                    DeclencherAction.declencherAction2(boutonGA, 61.0, 23.0);
+                    DeclencherAction.declencherAction2(boutonGA, 83, 43);
                 }         
                 break;
             }
@@ -224,13 +224,13 @@ public class MenuController implements Initializable {
                     firstActionGA = true;
                     firstActionAPP = false;
                     etat = Etat.VibLumAction;
-                    DeclencherAction.declencherAction2(boutonGA, 100, 70);
-                    DeclencherAction.declencherAction2(boutonAPPR, 61.0, 23.0);
+                    DeclencherAction.declencherAction2(boutonGA, 150, 110);
+                    DeclencherAction.declencherAction2(boutonAPPR, 83, 43);
                 }else{
                     etat = Etat.VibLum;
                     firstActionGA = false;
                     executeDeclencheGA();
-                    DeclencherAction.declencherAction2(boutonGA, 61.0, 23.0);
+                    DeclencherAction.declencherAction2(boutonGA, 83, 43);
                 }         
                 break;
             }
@@ -249,8 +249,8 @@ public class MenuController implements Initializable {
         normal.setSelected(true);
         vibration.setSelected(false);
         luminosite.setSelected(false);
-        DeclencherAction.declencherAction2(boutonGA, 61.0, 23.0);
-        DeclencherAction.declencherAction2(boutonAPPR, 61.0, 23.0);
+        DeclencherAction.declencherAction2(boutonGA, 83, 43);
+        DeclencherAction.declencherAction2(boutonAPPR, 83, 43);
         //change les couleurs de bouton
         this.fms.setStyleCss(1);
     }
