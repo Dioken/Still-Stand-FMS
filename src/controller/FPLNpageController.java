@@ -201,4 +201,16 @@ public class FPLNpageController {
             Logger.getLogger(FPLNpageController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    @FXML
+    public void handlerClickInserer() {
+        try {
+            FXMLLoader loaderClavier = new FXMLLoader();
+            loaderClavier.setLocation(StillStandFMS.class.getResource("/view/Clavier.fxml"));
+            AnchorPane FXMLViewClavier = (AnchorPane) loaderClavier.load();
+            rootSplit.getItems().set(1, FXMLViewClavier);
+        } catch (IOException ex) {
+            Logger.getLogger(FPLNpageController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }

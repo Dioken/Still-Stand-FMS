@@ -262,19 +262,19 @@ public class MenuController implements Initializable {
     @FXML
     private void activeVibration(ActionEvent event){
         switch(etat){
-            case Normal: 
+            case Normal:{ 
                 etat = Etat.Vibration;
                 normal.setSelected(false);
                 vibration.setSelected(true);
                 luminosite.setSelected(false);
                 break;
-            case Vibration:
+            }case Vibration:{
                 etat = Etat.Vibration;
                 normal.setSelected(false);
                 vibration.setSelected(true);
                 luminosite.setSelected(false);
                 break;
-            case Lumiere:{
+            }case Lumiere:{
                 etat = Etat.VibLum;
                 normal.setSelected(false);
                 vibration.setSelected(true);
@@ -302,23 +302,28 @@ public class MenuController implements Initializable {
     @FXML
     private void activeLimuniere(ActionEvent event){
        switch(etat){
-            case Normal: 
+            case Normal:{ 
                 etat = Etat.Lumiere;
                 normal.setSelected(false);
                 vibration.setSelected(false);
                 luminosite.setSelected(true);
+                this.fms.setStyleCss(2);
                 break;
-            case Vibration:
+            }case Vibration:{
                 etat = Etat.VibLum;
                 normal.setSelected(false);
                 vibration.setSelected(true);
                 luminosite.setSelected(true);
-                break;
+                this.fms.setStyleCss(2);
+                break;    
+            }
+                
             case Lumiere:{
                 etat = Etat.Lumiere;
                 normal.setSelected(false);
                 vibration.setSelected(false);
                 luminosite.setSelected(true);
+                this.fms.setStyleCss(2);
                 break;
             }
             case VibLum:{
@@ -326,6 +331,7 @@ public class MenuController implements Initializable {
                 normal.setSelected(false);
                 vibration.setSelected(true);
                 luminosite.setSelected(false);
+                this.fms.setStyleCss(1);
                 break;
             }
             
@@ -334,7 +340,7 @@ public class MenuController implements Initializable {
             case VibLumAction://interdit
                 break;
         }
-       this.fms.setStyleCss(2);
+       
     }
     
     
